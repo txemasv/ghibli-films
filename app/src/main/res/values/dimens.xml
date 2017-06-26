@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_radius">2dp</dimen>
+    <dimen name="card_margin">2dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
+
+    <dimen name="film_poster_width">150dp</dimen>
+    <dimen name="film_poster_height">210dp</dimen>
+
+    <dimen name="film_title_padding">16dp</dimen>
+    <dimen name="film_title_textSize">16sp</dimen>
+    <dimen name="film_release_date_paddingBottom">16dp</dimen>
+    <dimen name="film_release_date_padding">16dp</dimen>
+    <dimen name="film_release_date_textSize">16sp</dimen>
+</resources>
