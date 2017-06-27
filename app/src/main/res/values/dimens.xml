@@ -12,4 +12,6 @@
     <dimen name="film_release_date_paddingBottom">16dp</dimen>
     <dimen name="film_release_date_padding">16dp</dimen>
     <dimen name="film_release_date_textSize">16sp</dimen>
+
+    <dimen name="detail_backdrop_height">250dp</dimen>
 </resources>

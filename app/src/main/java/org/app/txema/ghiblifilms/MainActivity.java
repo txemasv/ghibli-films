@@ -1,10 +1,16 @@
 package org.app.txema.ghiblifilms;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import org.app.txema.ghiblifilms.adapter.FilmsAdapter;
 import org.app.txema.ghiblifilms.model.Film;
@@ -30,36 +36,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //1. Declare layout  variables
-        //main layout for snackBar
+        //Declare ToolBar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        //recyclerView layout
+        //Declare collapsingToolbar
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle(getString(R.string.cover_title));
+
+        //Declare main layout for use with snackBar
+
+        //Inflate recyclerView layout
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
-        //2. Use the layout manager
+        //Use the layout manager
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
 
-        //3. Declare ApiInterface Service
+        //Set image cover for collapsingLayout (Using Glide)
+        try {
+            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //Declare ApiInterface Service
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        //4. Declare Call function
+        //Declare Call function
         Call<List<Film>> call = apiService.getAllFilms();
 
-        //5. Call server (onResponse, onFailure)
+        //Call server (onResponse, onFailure)
         call.enqueue(new Callback<List<Film>>() {
             @Override
             public void onResponse(Call<List<Film>> call, Response<List<Film>> response) {
-                //1. wait for debugger (NOT IN RUN MODE!)
-                android.os.Debug.waitForDebugger();
-                Log.d(TAG, "wait for debugger ");
+                //wait for debugger (NOT IN RUN MODE!)
+                //android.os.Debug.waitForDebugger();
+               // Log.d(TAG, "wait for debugger ");
 
-                //2. get status_code
+                //get status_code
                 int statusCode = response.code();
 
-                //3. verify response http (code)
+                //verify response http (code)
                 //App codes 200(OK), 400(BAD_REQUEST), 404(NOT_FOUND)
                 switch (statusCode) {
                     case ResponseCode.OK:
@@ -70,13 +90,13 @@ public class MainActivity extends AppCompatActivity {
                         recyclerView.setAdapter(adapter);
                         break;
                     case ResponseCode.BAD_REQUEST:
-                        Log.e(TAG, "ERROR 400 BAD_REQUEST");
+                        Log.e(TAG, "HTTP ERROR 400: BAD_REQUEST");
                         break;
                     case ResponseCode.NOT_FOUND:
-                        Log.e(TAG, "ERROR 404 NOT_FOUND");
+                        Log.e(TAG, "HTTP ERROR 404: NOT_FOUND");
                         break;
                     default:
-                        Log.e(TAG, "ERROR " + statusCode);
+                        Log.e(TAG, "HTTP ERROR " + statusCode);
                         break;
                 }
             }

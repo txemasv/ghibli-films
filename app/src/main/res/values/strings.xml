@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GhibliFilms</string>
+    <string name="cover_title">Ghibli films</string>
 </resources>
