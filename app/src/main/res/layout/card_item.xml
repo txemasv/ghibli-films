@@ -28,7 +28,7 @@
             <TextView
                 android:id="@+id/title"
                 android:text="title"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/film_title_layout_width"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:paddingLeft="@dimen/film_title_padding"
@@ -40,7 +40,7 @@
             <TextView
                 android:id="@+id/release_date"
                 android:text="release_date"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/film_release_layout_width"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/title"

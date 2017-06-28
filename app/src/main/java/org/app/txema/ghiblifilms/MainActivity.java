@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Declare collapsingToolbar
+        //Declare collapsingToolbarLayout
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(getString(R.string.cover_title));
 
@@ -61,7 +61,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         //Set image cover for collapsingLayout (Using Glide)
-        Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
+        try {
+            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Declare ApiInterface Service
         ApiInterface apiService =
