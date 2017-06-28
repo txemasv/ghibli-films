@@ -1,8 +1,11 @@
 package org.app.txema.ghiblifilms;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FilmsAdapter adapter;
+    private CoordinatorLayout layoutMain;
+    private ProgressDialog pDialog;
 
 
     @Override
@@ -45,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         collapsingToolbarLayout.setTitle(getString(R.string.cover_title));
 
         //Declare main layout for use with snackBar
+        layoutMain = (CoordinatorLayout) findViewById(R.id.activity_main_layout);
 
         //Inflate recyclerView layout
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -55,11 +61,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         //Set image cover for collapsingLayout (Using Glide)
-        try {
-            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
 
         //Declare ApiInterface Service
         ApiInterface apiService =
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         Call<List<Film>> call = apiService.getAllFilms();
 
         //Call server (onResponse, onFailure)
+        progressDialogShow();
         call.enqueue(new Callback<List<Film>>() {
             @Override
             public void onResponse(Call<List<Film>> call, Response<List<Film>> response) {
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 int statusCode = response.code();
 
                 //verify response http (code)
-                //App codes 200(OK), 400(BAD_REQUEST), 404(NOT_FOUND)
+                //Api Webservice specification: codes 200(OK), 400(BAD_REQUEST), 404(NOT_FOUND)
                 switch (statusCode) {
                     case ResponseCode.OK:
                         //1. get items from response
@@ -88,15 +91,19 @@ public class MainActivity extends AppCompatActivity {
                         //2. specify adapter, with items list
                         adapter = new FilmsAdapter(films, MainActivity.this);
                         recyclerView.setAdapter(adapter);
+                        progressDialogDismiss();
                         break;
                     case ResponseCode.BAD_REQUEST:
                         Log.e(TAG, "HTTP ERROR 400: BAD_REQUEST");
+                        responseError("The server cannot or will not process the request due to an apparent client error.");
                         break;
                     case ResponseCode.NOT_FOUND:
                         Log.e(TAG, "HTTP ERROR 404: NOT_FOUND");
+                        responseError("The requested resource could not be found.");
                         break;
                     default:
                         Log.e(TAG, "HTTP ERROR " + statusCode);
+                        responseError("Error Http " + statusCode);
                         break;
                 }
             }
@@ -105,7 +112,31 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Film>> call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
+                responseError("Failed to connect to webservice.");
             }
         });
     }
+
+    private void responseError(String message) {
+        progressDialogDismiss();
+        Snackbar snackbar = Snackbar
+                .make(layoutMain, message, Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
+    }
+
+
+    private void progressDialogShow() {
+        // Showing progress dialog
+        pDialog = new ProgressDialog(MainActivity.this);
+        pDialog.setMessage("Please wait...");
+        pDialog.setCancelable(false);
+        pDialog.show();
+    }
+
+    private void progressDialogDismiss() {
+        // Dismiss the progress dialog
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
 }
