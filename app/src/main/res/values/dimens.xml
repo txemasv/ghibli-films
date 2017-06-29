@@ -7,14 +7,14 @@
     <dimen name="film_poster_width">150dp</dimen>
     <dimen name="film_poster_height">210dp</dimen>
 
-    <dimen name="film_title_padding">8dp</dimen>
-    <dimen name="film_title_textSize">16dp</dimen>
-    <dimen name="film_title_layout_width">160dp</dimen>
+    <dimen name="film_title_padding">16dp</dimen>
+    <dimen name="film_title_textSize">16sp</dimen>
+    <dimen name="film_title_layout_width">140dp</dimen>
 
     <dimen name="film_release_date_paddingBottom">16dp</dimen>
-    <dimen name="film_release_date_padding">8dp</dimen>
-    <dimen name="film_release_date_textSize">16dp</dimen>
-    <dimen name="film_release_layout_width">160dp</dimen>
+    <dimen name="film_release_date_padding">16dp</dimen>
+    <dimen name="film_release_date_textSize">16sp</dimen>
+    <dimen name="film_release_layout_width">140dp</dimen>
 
     <dimen name="detail_backdrop_height">250dp</dimen>
 </resources>

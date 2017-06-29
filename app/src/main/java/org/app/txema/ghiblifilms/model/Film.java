@@ -106,4 +106,14 @@ public class Film {
     public int getPoster(Context context) {
         return context.getResources().getIdentifier(getPosterName(), "drawable", context.getPackageName());
     }
+
+    public boolean isValid() {
+        return id != null
+                && title != null
+                && description != null
+                && director != null
+                && producer != null
+                && releaseDate != null
+                && score != null;
+    }
 }
