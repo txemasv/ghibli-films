@@ -1,0 +1,7 @@
+<resources>
+    <string name="http_error_400_bad_request">El servidor no puede procesar la petición debido a un error del cliente.</string>
+    <string name="http_error_404_not_found">El recurso solicitado no ha sido encontrado.</string>
+    <string name="http_error">Error http</string>
+    <string name="call_on_failure">Conexión con el servicio web fallida.</string>
+    <string name="progress_dialog">Espere porfavor…</string>
+</resources>

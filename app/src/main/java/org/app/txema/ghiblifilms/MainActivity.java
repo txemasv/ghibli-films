@@ -99,15 +99,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case ResponseCode.BAD_REQUEST:
                         Log.e(TAG, "HTTP ERROR 400: BAD_REQUEST");
-                        responseError("The server cannot or will not process the request due to an apparent client error.");
+                        responseError(getString(R.string.http_error_400_bad_request));
                         break;
                     case ResponseCode.NOT_FOUND:
                         Log.e(TAG, "HTTP ERROR 404: NOT_FOUND");
-                        responseError("The requested resource could not be found.");
+                        responseError(getString(R.string.http_error_404_not_found));
                         break;
                     default:
                         Log.e(TAG, "HTTP ERROR " + statusCode);
-                        responseError("Error Http " + statusCode);
+                        responseError(getString(R.string.http_error) + " " + statusCode);
                         break;
                 }
             }
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Film>> call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
-                responseError("Failed to connect to webservice.");
+                responseError(getString(R.string.call_on_failure));
             }
         });
     }
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     private void progressDialogShow() {
         // Showing progress dialog
         pDialog = new ProgressDialog(MainActivity.this);
-        pDialog.setMessage("Please wait...");
+        pDialog.setMessage(getString(R.string.progress_dialog));
         pDialog.setCancelable(false);
         pDialog.show();
     }

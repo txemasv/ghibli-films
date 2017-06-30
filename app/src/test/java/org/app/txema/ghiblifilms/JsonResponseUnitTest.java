@@ -3,6 +3,7 @@ package org.app.txema.ghiblifilms;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.app.txema.ghiblifilms.model.Film;
+import org.app.txema.ghiblifilms.rest.ApiClient;
 import org.app.txema.ghiblifilms.rest.ApiInterface;
 import org.junit.Test;
 
@@ -20,7 +21,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 /**
- * Example local unit test, which will execute on the development machine (host).
+ * Local unit test, which will execute on the development machine (host).
+ *
+ * This test verify the json response from the web server.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
@@ -28,8 +31,8 @@ public class JsonResponseUnitTest {
 
     /**
      * Validate empty response from web server.
-     * If the response is empty, the call function
-     * throws a java.io.EOFException
+     *
+     * The response is empty, then call function throws java.io.EOFException
      *
      * @throws Exception
      */
@@ -47,7 +50,7 @@ public class JsonResponseUnitTest {
 
         //Declare the ApiClient.
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(mockWebServer.url("").toString())
+                .baseUrl(mockWebServer.url("/").toString())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -73,8 +76,9 @@ public class JsonResponseUnitTest {
 
     /**
      * Validate malformed json response from web server.
-     * If the response is not json, the call function
-     * throws a com.google.gson.stream.MalformedJsonException.
+     *
+     * The response is not coded in json, then call function
+     * throws com.google.gson.stream.MalformedJsonException.
      *
      * @throws Exception
      */
@@ -91,7 +95,7 @@ public class JsonResponseUnitTest {
 
         //Declare the ApiClient.
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(mockWebServer.url("").toString())
+                .baseUrl(mockWebServer.url("/").toString())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -116,10 +120,11 @@ public class JsonResponseUnitTest {
     }
 
     /**
-     * Validate json state response from web server.
-     * If the response is correct json but it isn't the correct data type of the model
-     * (Is mocked a JsonObject, but is expected a JsonArray)
-     * the call function throws a java.lang.IllegalStateException.
+     * Validate json state (data type) from web server.
+     *
+     * The response has not the correct data type
+     * (is expected a JsonArray but is received a JsonObject).
+     * Then call function throws java.lang.IllegalStateException.
      *
      * @throws Exception
      */
@@ -141,7 +146,7 @@ public class JsonResponseUnitTest {
 
         //Declare the ApiClient.
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(mockWebServer.url("").toString())
+                .baseUrl(mockWebServer.url("/").toString())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -166,9 +171,10 @@ public class JsonResponseUnitTest {
     }
 
     /**
-     * Validate json model response from web server.
-     * If the response is correct json but it isn't the correct model of app (List<Film>)
-     * the call function throws a .
+     * Validate json model from web server.
+     *
+     * The response doesn't correspond with object model (List<Film>).
+     * The objects of the response are verified and the assert condition has to be false.
      *
      * @throws Exception
      */
@@ -195,7 +201,7 @@ public class JsonResponseUnitTest {
 
         //Declare the ApiClient.
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(mockWebServer.url("").toString())
+                .baseUrl(mockWebServer.url("/").toString())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -224,7 +230,8 @@ public class JsonResponseUnitTest {
     }
 
     /**
-     * Validate the correct response from web server:
+     * Validate the correct response from web server.
+     *
      * 1. response body is not empty
      * 2. response body is Json format
      * 3. response data type has the correct structure
@@ -269,7 +276,7 @@ public class JsonResponseUnitTest {
 
         //Declare the ApiClient.
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(mockWebServer.url("").toString())
+                .baseUrl(mockWebServer.url("/").toString())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -296,10 +303,5 @@ public class JsonResponseUnitTest {
         //Finish web server
         mockWebServer.shutdown();
     }
-
-
-    // malformed url (exception) - Ex: httpr://ghibliapi.herokuapp.com/
-    // failed connect to webservice (onFailure) - Ex: https://ghibliapi.herokuapp.co/
-    // error 404: not found (case error 404) - Ex: /filmmm/
 
 }
