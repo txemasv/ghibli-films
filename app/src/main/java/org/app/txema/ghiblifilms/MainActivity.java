@@ -76,12 +76,16 @@ public class MainActivity extends AppCompatActivity {
 
         //Call server (onResponse, onFailure)
         progressDialogShow();
-        call.enqueue(new Callback<List<Film>>() {
+        call.enqueue(mCallbackListFilms());
+    }
+
+    private Callback<List<Film>> mCallbackListFilms() {
+        return new Callback<List<Film>>() {
             @Override
             public void onResponse(Call<List<Film>> call, Response<List<Film>> response) {
                 //wait for debugger (NOT IN RUN MODE!)
                 //android.os.Debug.waitForDebugger();
-               // Log.d(TAG, "wait for debugger ");
+                // Log.d(TAG, "wait for debugger ");
 
                 //get status_code
                 int statusCode = response.code();
@@ -118,8 +122,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, t.toString());
                 responseError(getString(R.string.call_on_failure));
             }
-        });
+        };
     }
+
 
     private void responseError(String message) {
         progressDialogDismiss();

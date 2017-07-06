@@ -1,6 +1,8 @@
 package org.app.txema.ghiblifilms.model;
 
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -8,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Txema on 20/06/2017.
  */
 
-public class Film {
+public class Film implements Parcelable {
     @SerializedName("id")
     private String id;
 
@@ -116,4 +118,52 @@ public class Film {
                 && releaseDate != null
                 && score != null;
     }
+
+    // *****************************************************
+    // Parcelable functions to pass Film object in an Intent
+    // *****************************************************
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    // Storing the Film data to Parcel object
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(director);
+        dest.writeString(producer);
+        dest.writeString(releaseDate);
+        dest.writeString(score);
+    }
+
+    /**
+     * Retrieving Movie data from Parcel object
+     * This constructor is invoked by the method createFromParcel(Parcel source) of
+     * the object CREATOR
+     **/
+    private Film(Parcel in) {
+        this.id = in.readString();
+        this.title = in.readString();
+        this.description = in.readString();
+        this.director = in.readString();
+        this.producer = in.readString();
+        this.releaseDate = in.readString();
+        this.score = in.readString();
+    }
+
+    public static final Parcelable.Creator<Film> CREATOR = new Parcelable.Creator<Film>() {
+        @Override
+        public Film createFromParcel(Parcel source) {
+            return new Film(source);
+        }
+
+        @Override
+        public Film[] newArray(int size) {
+            return new Film[size];
+        }
+    };
 }

@@ -31,11 +31,11 @@
                 android:layout_width="@dimen/film_title_layout_width"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:paddingLeft="@dimen/film_title_padding"
-                android:paddingRight="@dimen/film_title_padding"
-                android:paddingTop="@dimen/film_title_padding"
+                android:paddingLeft="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+                android:paddingTop="@dimen/default_padding"
                 android:textColor="@color/film_title_color"
-                android:textSize="@dimen/film_title_textSize" />
+                android:textSize="@dimen/default_textSize" />
 
             <TextView
                 android:id="@+id/release_date"
@@ -44,10 +44,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/title"
-                android:paddingBottom="@dimen/film_release_date_paddingBottom"
-                android:paddingLeft="@dimen/film_release_date_padding"
-                android:paddingRight="@dimen/film_release_date_padding"
-                android:textSize="@dimen/film_release_date_textSize" />
+                android:paddingBottom="@dimen/default_padding"
+                android:paddingLeft="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+                android:textSize="@dimen/default_textSize" />
 
         </RelativeLayout>
 

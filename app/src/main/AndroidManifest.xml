@@ -18,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="org.app.txema.ghiblifilms.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.app.txema.ghiblifilms.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

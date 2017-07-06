@@ -6,4 +6,7 @@
     <string name="http_error">Http error</string>
     <string name="call_on_failure">Failed to connect to webservice.</string>
     <string name="progress_dialog">Please wait…</string>
+    <string name="poster">poster</string>
+    <string name="producer">Producer</string>
+    <string name="director">Director</string>
 </resources>
