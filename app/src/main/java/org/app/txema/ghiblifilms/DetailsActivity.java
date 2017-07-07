@@ -39,28 +39,6 @@ public class DetailsActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-        //Insert film data into layout
-        final TextView descriptionView = (TextView) findViewById(R.id.description);
-        descriptionView.setText(film.getDescription());
-
-        final TextView titleView = (TextView) findViewById(R.id.title);
-        titleView.setText(film.getTitle());
-
-        final TextView releaseDateView = (TextView) findViewById(R.id.release_date);
-        releaseDateView.setText(film.getReleaseDate());
-
-        try {
-            Glide.with(this).load(film.getPoster(DetailsActivity.this)).into((ImageView) findViewById(R.id.poster));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        final TextView directorView = (TextView) findViewById(R.id.director_name);
-        directorView.setText(film.getDirector());
-
-        final TextView producerView = (TextView) findViewById(R.id.producer_name);
-        producerView.setText(film.getProducer());
     }
 
     @Override
