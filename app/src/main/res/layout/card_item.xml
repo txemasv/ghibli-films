@@ -18,19 +18,19 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/poster"
+                android:id="@+id/thumbnail"
                 android:layout_width="@dimen/film_poster_width"
                 android:layout_height="@dimen/film_poster_height"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
+                android:clickable="false"
                 android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/title"
                 android:text="title"
-                android:layout_width="@dimen/film_title_layout_width"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/thumbnail"
                 android:paddingLeft="@dimen/default_padding"
                 android:paddingRight="@dimen/default_padding"
                 android:paddingTop="@dimen/default_padding"
@@ -40,14 +40,24 @@
             <TextView
                 android:id="@+id/release_date"
                 android:text="release_date"
-                android:layout_width="@dimen/film_release_layout_width"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_below="@id/title"
+                android:layout_toRightOf="@+id/thumbnail"
                 android:paddingBottom="@dimen/default_padding"
                 android:paddingLeft="@dimen/default_padding"
                 android:paddingRight="@dimen/default_padding"
                 android:textSize="@dimen/default_textSize" />
+
+            <ImageView
+                android:id="@+id/icon_dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:padding="@dimen/default_padding"
+                android:src="@drawable/ic_dots"
+                android:clickable="false" />
 
         </RelativeLayout>
 

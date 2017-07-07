@@ -100,13 +100,24 @@ public class Film implements Parcelable {
 
     private String getPosterName() {
         //The name of the image resource is the
-        //name of the film in lowercase and changing spaces by _
-        //example: My Neighbor Totoro = my_neighbor_totoro
-        return this.getTitle().toLowerCase().replaceAll(" ", "_").replaceAll("'", "");
+        //name of the film in lowercase and changing spaces by _ adding _poster at the end
+        //example: My Neighbor Totoro = my_neighbor_totoro_poster
+        return this.getTitle().toLowerCase().replaceAll(" ", "_").replaceAll("'", "").concat("_poster");
     }
 
     public int getPoster(Context context) {
         return context.getResources().getIdentifier(getPosterName(), "drawable", context.getPackageName());
+    }
+
+    private String getThumbnailName() {
+        //The name of the image resource is the
+        //name of the film in lowercase and changing spaces by _  adding _thumbnail at the end
+        //example: My Neighbor Totoro = my_neighbor_totoro_thumbnail
+        return this.getTitle().toLowerCase().replaceAll(" ", "_").replaceAll("'", "").concat("_thumbnail");
+    }
+
+    public int getThumbnail(Context context) {
+        return context.getResources().getIdentifier(getThumbnailName(), "drawable", context.getPackageName());
     }
 
     public boolean isValid() {

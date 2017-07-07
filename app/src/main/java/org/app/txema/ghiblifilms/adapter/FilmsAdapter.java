@@ -30,14 +30,14 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
     //1. create static ViewHolder
     class MyViewHolder extends RecyclerView.ViewHolder {
         private View cardView;
-        private ImageView poster;
+        private ImageView thumbnail;
         private TextView title, releaseDate;
         MyViewHolder(View itemView) {
             super(itemView);
             //find view items from layout
             cardView = itemView.findViewById(R.id.card_view);
             title = (TextView) itemView.findViewById(R.id.title);
-            poster = (ImageView) itemView.findViewById(R.id.poster);
+            thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
             releaseDate = (TextView) itemView.findViewById(R.id.release_date);
         }
     }
@@ -68,7 +68,7 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
         holder.releaseDate.setText(film.getReleaseDate());
 
         // loading album cover using Glide library
-        Glide.with(context).load(film.getPoster(context)).into(holder.poster);
+        Glide.with(context).load(film.getThumbnail(context)).into(holder.thumbnail);
 
         //add listeners on items
         holder.cardView.setOnClickListener(new View.OnClickListener() {
