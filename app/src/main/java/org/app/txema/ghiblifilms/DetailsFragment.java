@@ -17,6 +17,14 @@ import org.app.txema.ghiblifilms.model.Film;
  */
 
 public class DetailsFragment extends Fragment {
+
+    private TextView descriptionView;
+    private TextView titleView;
+    private TextView releaseDateView;
+    private ImageView posterView;
+    private TextView directorView;
+    private TextView producerView;
+
     // The onCreateView method is called when Fragment should create its View object hierarchy,
     // either dynamically or via XML layout inflation.
     @Override
@@ -31,30 +39,28 @@ public class DetailsFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
 
-        //Get Film from extras
-        Film film = getActivity().getIntent().getParcelableExtra("film");
+        //Declare layout
+        descriptionView = (TextView) view.findViewById(R.id.description);
+        titleView = (TextView) view.findViewById(R.id.title);
+        releaseDateView = (TextView) view.findViewById(R.id.release_date);
+        posterView = (ImageView) view.findViewById(R.id.poster);
+        directorView = (TextView) view.findViewById(R.id.director_name);
+        producerView = (TextView) view.findViewById(R.id.producer_name);
+    }
 
-        //Insert film data into layout
-        final TextView descriptionView = (TextView) view.findViewById(R.id.description);
-        descriptionView.setText(film.getDescription());
-
-        final TextView titleView = (TextView) view.findViewById(R.id.title);
-        titleView.setText(film.getTitle());
-
-        final TextView releaseDateView = (TextView) view.findViewById(R.id.release_date);
-        releaseDateView.setText(film.getReleaseDate());
-
-        try {
-            Glide.with(this).load(film.getPoster(getActivity())).into((ImageView) view.findViewById(R.id.poster));
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void updateDetailsView(Film film) {
+        if (film != null) {
+            //Insert film data into layout
+            descriptionView.setText(film.getDescription());
+            titleView.setText(film.getTitle());
+            releaseDateView.setText(film.getReleaseDate());
+            try {
+                Glide.with(this).load(film.getPoster(getActivity())).into(posterView);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            directorView.setText(film.getDirector());
+            producerView.setText(film.getProducer());
         }
-
-        final TextView directorView = (TextView) view.findViewById(R.id.director_name);
-        directorView.setText(film.getDirector());
-
-        final TextView producerView = (TextView) view.findViewById(R.id.producer_name);
-        producerView.setText(film.getProducer());
-
     }
 }

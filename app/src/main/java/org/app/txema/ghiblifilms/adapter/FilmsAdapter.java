@@ -2,6 +2,7 @@ package org.app.txema.ghiblifilms.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import org.app.txema.ghiblifilms.DetailsActivity;
+import org.app.txema.ghiblifilms.DetailsFragment;
 import org.app.txema.ghiblifilms.R;
 import org.app.txema.ghiblifilms.model.Film;
 
@@ -46,6 +48,7 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
     public FilmsAdapter(List<Film> films, Context context) {
         this.films = films;
         this.context = context;
+        updateDetails(films.get(0));
     }
 
     //3. override the 3 methods
@@ -74,11 +77,26 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextActivity = new Intent(context, DetailsActivity.class);
-                nextActivity.putExtra("film", film);
-                context.startActivity(nextActivity);
+                updateDetails(film);
             }
         });
+    }
+
+    private void updateDetails(Film film) {
+        // Capture the article fragment from the activity layout
+        DetailsFragment detailsFrag = (DetailsFragment)
+                ((AppCompatActivity)context).getSupportFragmentManager().findFragmentById(R.id.detailsFragment);
+
+        // If detailsFrag is available
+        if (detailsFrag != null) {
+            //two-pane layout
+            detailsFrag.updateDetailsView(film);
+        } else {
+            //one-pane layout
+            Intent nextActivity = new Intent(context, DetailsActivity.class);
+            nextActivity.putExtra("film", film);
+            context.startActivity(nextActivity);
+        }
     }
 
     @Override

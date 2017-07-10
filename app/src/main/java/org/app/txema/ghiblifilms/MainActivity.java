@@ -125,14 +125,12 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-
     private void responseError(String message) {
         progressDialogDismiss();
         Snackbar snackbar = Snackbar
                 .make(layoutMain, message, Snackbar.LENGTH_INDEFINITE);
         snackbar.show();
     }
-
 
     private void progressDialogShow() {
         // Showing progress dialog

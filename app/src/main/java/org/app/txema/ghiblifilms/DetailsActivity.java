@@ -30,6 +30,11 @@ public class DetailsActivity extends AppCompatActivity {
         //Get Film from extras
         Film film = getIntent().getParcelableExtra("film");
 
+        // Capture the detailsFragment from the activity layout
+        DetailsFragment detailsFrag = (DetailsFragment)
+                (DetailsActivity.this).getSupportFragmentManager().findFragmentById(R.id.detailsFragment);
+        detailsFrag.updateDetailsView(film);
+
         //Declare ToolBar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(film.getTitle());
