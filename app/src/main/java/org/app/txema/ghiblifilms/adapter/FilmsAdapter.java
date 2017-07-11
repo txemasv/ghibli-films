@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -48,7 +47,9 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
     public FilmsAdapter(List<Film> films, Context context) {
         this.films = films;
         this.context = context;
-        updateDetails(films.get(0));
+        if(!films.isEmpty()) {
+            setDefaultFilmDetails(films.get(0));
+        }
     }
 
     //3. override the 3 methods
@@ -83,7 +84,7 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
     }
 
     private void updateDetails(Film film) {
-        // Capture the article fragment from the activity layout
+        // Capture the detail fragment from the activity layout
         DetailsFragment detailsFrag = (DetailsFragment)
                 ((AppCompatActivity)context).getSupportFragmentManager().findFragmentById(R.id.detailsFragment);
 
@@ -96,6 +97,18 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
             Intent nextActivity = new Intent(context, DetailsActivity.class);
             nextActivity.putExtra("film", film);
             context.startActivity(nextActivity);
+        }
+    }
+
+    private void setDefaultFilmDetails(Film film) {
+        // Capture the detail fragment from the activity layout
+        DetailsFragment detailsFrag = (DetailsFragment)
+                ((AppCompatActivity)context).getSupportFragmentManager().findFragmentById(R.id.detailsFragment);
+
+        // If detailsFrag is available, we put a default film on right pane.
+        if (detailsFrag != null) {
+            //two-pane layout
+            detailsFrag.updateDetailsView(film);
         }
     }
 

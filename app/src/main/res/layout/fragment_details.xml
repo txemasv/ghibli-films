@@ -13,7 +13,7 @@
         android:paddingTop="@dimen/default_padding"
         android:text="title"
         android:textColor="@color/film_title_color"
-        android:textSize="@dimen/default_textSize" />
+        android:textSize="@dimen/title_textSize"/>
 
     <TextView
         android:id="@+id/release_date"
@@ -24,7 +24,7 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:text="release date"
-        android:textSize="@dimen/default_textSize" />
+        android:textSize="@dimen/title_textSize"/>
 
     <!-- description -->
     <TextView
@@ -35,7 +35,8 @@
         android:paddingBottom="@dimen/default_padding"
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
-        android:text="" />
+        android:text=""
+        android:textSize="@dimen/description_textSize"/>
 
     <!-- poster -->
     <ImageView
@@ -60,7 +61,7 @@
         android:paddingTop="@dimen/default_padding"
         android:text="@string/director"
         android:textColor="@color/film_title_color"
-        android:textSize="@dimen/default_textSize" />
+        android:textSize="@dimen/title_textSize" />
 
     <TextView
         android:id="@+id/director_name"
@@ -71,7 +72,7 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:text="director name"
-        android:textSize="@dimen/default_textSize" />
+        android:textSize="@dimen/title_textSize" />
 
     <!-- producer -->
     <TextView
@@ -84,7 +85,7 @@
         android:paddingTop="@dimen/default_padding"
         android:text="@string/producer"
         android:textColor="@color/film_title_color"
-        android:textSize="@dimen/default_textSize" />
+        android:textSize="@dimen/title_textSize" />
 
     <TextView
         android:id="@+id/producer_name"
@@ -95,6 +96,6 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:text="producer name"
-        android:textSize="@dimen/default_textSize" />
+        android:textSize="@dimen/title_textSize" />
 
 </RelativeLayout>

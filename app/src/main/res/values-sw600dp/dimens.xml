@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding">32dp</dimen>
+    <dimen name="default_textSize">16sp</dimen>
+    <dimen name="title_textSize">24sp</dimen>
+    <dimen name="description_textSize">20sp</dimen>
+</resources>

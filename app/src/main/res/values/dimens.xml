@@ -9,9 +9,8 @@
 
     <dimen name="default_padding">16dp</dimen>
     <dimen name="default_textSize">16sp</dimen>
-
-    <dimen name="film_title_layout_width">140dp</dimen>
-    <dimen name="film_release_layout_width">140dp</dimen>
+    <dimen name="title_textSize">16sp</dimen>
+    <dimen name="description_textSize">14sp</dimen>
 
     <dimen name="detail_backdrop_height">250dp</dimen>
 </resources>
