@@ -11,7 +11,7 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding"
-        android:text="title"
+        android:text="Title"
         android:textColor="@color/film_title_color"
         android:textSize="@dimen/title_textSize"/>
 

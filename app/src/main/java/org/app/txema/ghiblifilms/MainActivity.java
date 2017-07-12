@@ -1,9 +1,9 @@
 package org.app.txema.ghiblifilms;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FilmsAdapter adapter;
-    private CoordinatorLayout layoutMain;
+    private View layoutMain;
     private ProgressDialog pDialog;
 
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         collapsingToolbarLayout.setTitle(getString(R.string.cover_title));
 
         //Declare main layout for use with snackBar
-        layoutMain = (CoordinatorLayout) findViewById(R.id.activity_main_layout);
+        layoutMain = findViewById(R.id.activity_main_layout);
 
         //Inflate recyclerView layout
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -74,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Declare Call function
         Call<List<Film>> call = apiService.getAllFilms();
+
+        //Screen orientation (one-pane: portrait, two-pane: landscape)
+        setScreenOrientation();
 
         //Call server (onResponse, onFailure)
         progressDialogShow();
@@ -145,5 +149,15 @@ public class MainActivity extends AppCompatActivity {
         // Dismiss the progress dialog
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+
+    private void setScreenOrientation() {
+        Resources res = getResources();
+        boolean twoPanes = res.getBoolean(R.bool.two_panes);
+        if(twoPanes) {
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        } else {
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 }
