@@ -12,7 +12,7 @@ Android App that shows a list with all films of Studio Ghibli. Touching one list
 - Multilanguage.
 
 ## Motivation
-This project has been created to showing the use of some main Android libraries working together applying recommended design practices.
+Share a complete example that uses main libraries to create a JSON API Client respecting good design practices.
 
 ## Api Web to get JSON data
 https://ghibliapi.herokuapp.com
