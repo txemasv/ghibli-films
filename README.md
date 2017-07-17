@@ -15,8 +15,7 @@ Android App that shows a list with all films of Studio Ghibli. Touching one list
 Share a complete example that uses main libraries to create a JSON API Client respecting good design practices.
 
 ## Studio Ghibli API JSON
-The Studio Ghibli API catalogs the films, people, places, and things found in the worlds of Ghibli films.
-https://ghibliapi.herokuapp.com
+The Studio Ghibli API catalogs the films found in the worlds of Ghibli: https://ghibliapi.herokuapp.com/#tag/Films
 
 ## License
 Copyright 2017 Jose M. Seoane
