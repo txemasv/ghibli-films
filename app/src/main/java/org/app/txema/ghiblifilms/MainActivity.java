@@ -5,7 +5,6 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -79,8 +78,10 @@ public class MainActivity extends AppCompatActivity {
         //Screen orientation (one-pane: portrait, two-pane: landscape)
         setScreenOrientation();
 
+        //Show Progress dialog
+        //progressDialogShow();
+
         //Call server (onResponse, onFailure)
-        progressDialogShow();
         call.enqueue(mCallbackListFilms());
     }
 
@@ -89,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Film>> call, Response<List<Film>> response) {
                 //wait for debugger (NOT IN RUN MODE!)
-                //android.os.Debug.waitForDebugger();
-                // Log.d(TAG, "wait for debugger ");
+                android.os.Debug.waitForDebugger();
+                Log.d(TAG, "wait for debugger ");
 
                 //get status_code
                 int statusCode = response.code();
@@ -104,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                         //2. specify adapter, with items list
                         adapter = new FilmsAdapter(films, MainActivity.this);
                         recyclerView.setAdapter(adapter);
-                        progressDialogDismiss();
                         break;
                     case ResponseCode.BAD_REQUEST:
                         Log.e(TAG, "HTTP ERROR 400: BAD_REQUEST");
@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         responseError(getString(R.string.http_error) + " " + statusCode);
                         break;
                 }
+                //progressDialogHide();
             }
 
             @Override
@@ -126,29 +127,26 @@ public class MainActivity extends AppCompatActivity {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
                 responseError(getString(R.string.call_on_failure));
+                //progressDialogHide();
             }
         };
     }
 
-    private void responseError(String message) {
-        progressDialogDismiss();
-        Snackbar snackbar = Snackbar
-                .make(layoutMain, message, Snackbar.LENGTH_INDEFINITE);
-        snackbar.show();
-    }
-
     private void progressDialogShow() {
-        // Showing progress dialog
         pDialog = new ProgressDialog(MainActivity.this);
         pDialog.setMessage(getString(R.string.progress_dialog));
         pDialog.setCancelable(false);
         pDialog.show();
     }
 
-    private void progressDialogDismiss() {
-        // Dismiss the progress dialog
-        if (pDialog.isShowing())
-            pDialog.dismiss();
+    private void progressDialogHide() {
+        pDialog.dismiss();
+    }
+
+    private void responseError(String message) {
+        Snackbar snackbar = Snackbar
+                .make(layoutMain, message, Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
     }
 
     private void setScreenOrientation() {
