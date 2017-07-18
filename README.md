@@ -2,9 +2,9 @@
 
 ## Description
 Android App that shows a list with all films of Studio Ghibli. Touching one list item allows to see the film details.
-![handset parent](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset01.png =250x)
-![hadset child](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset02.png =250x)
-![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png =500x)
+![handset parent](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset01.png)
+![hadset child](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset02.png)
+![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
 
 ## Key Features
 - MaterialDesign List based on CardView and RecyclerView. 
