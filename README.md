@@ -1,10 +1,7 @@
 # ghibli-films
 
 ## Description
-Android App that shows a list with all films of Studio Ghibli. Touching one list item allows to see the film details.
-![handset parent](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset01.png)
-![hadset child](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset02.png)
-![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
+Android App that shows a list with all films of Studio Ghibli. Touching one item on the list, allows to see the film details.
 
 ## Key Features
 - MaterialDesign List based on CardView and RecyclerView. 
@@ -13,6 +10,13 @@ Android App that shows a list with all films of Studio Ghibli. Touching one list
 - JUnit test using OkHttp:MockWebServer.
 - IU flexible based on Fragments (one-pane handset, two-panes tablet).
 - Multilanguage.
+
+### Handset one-pane
+![handset parent](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset01.png)
+![hadset child](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset02.png)
+
+### Tablet two-panes
+![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
 
 ## Motivation
 Share a complete example that uses main libraries to create a JSON API Client respecting good design practices.
