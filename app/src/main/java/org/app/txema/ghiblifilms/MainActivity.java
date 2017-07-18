@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         setScreenOrientation();
 
         //Show Progress dialog
-        //progressDialogShow();
+        progressDialogShow();
 
         //Call server (onResponse, onFailure)
         call.enqueue(mCallbackListFilms());
@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Film>> call, Response<List<Film>> response) {
                 //wait for debugger (NOT IN RUN MODE!)
-                android.os.Debug.waitForDebugger();
-                Log.d(TAG, "wait for debugger ");
+                //android.os.Debug.waitForDebugger();
+                //Log.d(TAG, "wait for debugger ");
 
                 //get status_code
                 int statusCode = response.code();
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         responseError(getString(R.string.http_error) + " " + statusCode);
                         break;
                 }
-                //progressDialogHide();
+                progressDialogHide();
             }
 
             @Override
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
                 responseError(getString(R.string.call_on_failure));
-                //progressDialogHide();
+                progressDialogHide();
             }
         };
     }
@@ -140,7 +140,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void progressDialogHide() {
-        pDialog.dismiss();
+        if(pDialog != null && pDialog.isShowing()) {
+            try {
+                pDialog.dismiss();
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
+        }
     }
 
     private void responseError(String message) {
