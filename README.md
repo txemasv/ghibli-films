@@ -9,7 +9,7 @@ Touching one item on the list, you can see the film details.
 The objective of this project is to share a complete example on Android to create a Json Rest API Client using good design practices.
 
 ## Key Features
- -Collapsing tool bar layout.
+- Collapsing tool bar layout.
 - MaterialDesign List based on CardView and RecyclerView. 
 - REST Client JSON using Retrofit and Gson.
 - Load images with Glide.
