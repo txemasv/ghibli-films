@@ -1,4 +1,4 @@
-# ghibli-films
+# GhibliFilms
 
 ## Description
 Studio Ghibli films collection App for Android. 
