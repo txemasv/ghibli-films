@@ -6,7 +6,7 @@ Studio Ghibli films collection App for Android.
 The App shows an interactive list with all films of Studio Ghibli. 
 Touching one item on the list, you can see the film details.
 
-The objective of this project is to share a complete example on Android to create a Json Rest API Client using good design practices.
+**The objective** of this project is to share a complete Android example to create a Json Rest API Client using good design practices.
 
 ## Key Features
 - Collapsing tool bar layout.
