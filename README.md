@@ -1,7 +1,7 @@
 # GhibliFilms
 
 ## Description
-Studio Ghibli films collection App for Android. 
+Studio Ghibli films collection App for **Android**. 
 
 The App shows an interactive list with all films of Studio Ghibli. 
 Touching one item on the list, you can see the film details.
