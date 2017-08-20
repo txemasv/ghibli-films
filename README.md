@@ -24,8 +24,8 @@ Touching one item on the list, you can see the film details.
 ### Tablet two-panes
 ![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
 
-## Studio Ghibli API JSON
-This API catalogs the films of Studio Ghibli: https://ghibliapi.herokuapp.com/#tag/Films
+## API JSON
+**Studio Ghibli API** catalogs the films of Studio Ghibli: https://ghibliapi.herokuapp.com/#tag/Films
 
 ## License
 Copyright 2017 Jose M. Seoane
