@@ -32,7 +32,7 @@
                 app:contentScrim="?attr/colorPrimary"
                 app:expandedTitleMarginEnd="64dp"
                 app:expandedTitleMarginStart="48dp"
-                app:expandedTitleTextAppearance="@android:color/transparent"
+                app:expandedTitleTextAppearance="@style/TextAppearance.Design.CollapsingToolbar.Expanded.Shadow"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <RelativeLayout
@@ -60,7 +60,12 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_main" />
+        <fragment
+            android:id="@+id/listFragment"
+            android:name="org.app.txema.ghiblifilms.view.fragment.ListFragment"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </android.support.design.widget.CoordinatorLayout>
 
@@ -72,9 +77,10 @@
 
         <fragment
             android:id="@+id/detailsFragment"
-            android:name="org.app.txema.ghiblifilms.DetailsFragment"
+            android:name="org.app.txema.ghiblifilms.view.fragment.DetailsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </android.support.v4.widget.NestedScrollView>
 
 

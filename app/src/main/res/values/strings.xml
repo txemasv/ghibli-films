@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">GhibliFilms</string>
     <string name="cover_title">Ghibli films</string>
-    <string name="http_error_400_bad_request">The server cannot process the request due to an apparent client error.</string>
-    <string name="http_error_404_not_found">The requested resource could not be found.</string>
-    <string name="http_error">Http error</string>
+    <string name="http_error">Problem getting data from error</string>
     <string name="call_on_failure">Failed to connect to webservice.</string>
     <string name="progress_dialog">Please wait…</string>
     <string name="poster">poster</string>
     <string name="producer">Producer</string>
     <string name="director">Director</string>
+    <string name="action_about_us">About us</string>
+    <string name="action_rate_app">Rate app</string>
+    <string name="reload" >Reload</string>
 </resources>

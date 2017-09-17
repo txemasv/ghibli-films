@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import rx.Observable;
 
 /**
  * Created by Txema on 20/06/2017.
@@ -14,5 +15,5 @@ import retrofit2.http.GET;
 public interface ApiInterface {
 
     @GET("films")
-    Call<List<Film>> getAllFilms();
+    Observable<List<Film>> getAllFilms();
 }

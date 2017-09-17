@@ -1,40 +1,23 @@
 package org.app.txema.ghiblifilms;
 
-import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import org.app.txema.ghiblifilms.adapter.FilmsAdapter;
-import org.app.txema.ghiblifilms.model.Film;
-import org.app.txema.ghiblifilms.rest.ApiClient;
-import org.app.txema.ghiblifilms.rest.ApiInterface;
-import org.app.txema.ghiblifilms.util.ResponseCode;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    private RecyclerView recyclerView;
-    private FilmsAdapter adapter;
-    private View layoutMain;
-    private ProgressDialog pDialog;
 
 
     @Override
@@ -42,24 +25,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Declare ToolBar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Declare AppBarLayout
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        appBarLayout.setExpanded(true);
 
         //Declare collapsingToolbarLayout
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(getString(R.string.cover_title));
 
-        //Declare main layout for use with snackBar
-        layoutMain = findViewById(R.id.activity_main_layout);
-
-        //Inflate recyclerView layout
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-
-        //Use the layout manager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-        recyclerView.setLayoutManager(layoutManager);
+        //Declare ToolBar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         //Set image cover for collapsingLayout (Using Glide)
         try {
@@ -68,91 +44,35 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //Declare ApiInterface Service
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
-
-        //Declare Call function
-        Call<List<Film>> call = apiService.getAllFilms();
-
-        //Screen orientation (one-pane: portrait, two-pane: landscape)
         setScreenOrientation();
-
-        //Show Progress dialog
-        progressDialogShow();
-
-        //Call server (onResponse, onFailure)
-        call.enqueue(mCallbackListFilms());
     }
 
-    private Callback<List<Film>> mCallbackListFilms() {
-        return new Callback<List<Film>>() {
-            @Override
-            public void onResponse(Call<List<Film>> call, Response<List<Film>> response) {
-                //wait for debugger (NOT IN RUN MODE!)
-                //android.os.Debug.waitForDebugger();
-                //Log.d(TAG, "wait for debugger ");
-
-                //get status_code
-                int statusCode = response.code();
-
-                //verify response http (code)
-                //Api Webservice specification: codes 200(OK), 400(BAD_REQUEST), 404(NOT_FOUND)
-                switch (statusCode) {
-                    case ResponseCode.OK:
-                        //1. get items from response
-                        List<Film> films = response.body();
-                        //2. specify adapter, with items list
-                        adapter = new FilmsAdapter(films, MainActivity.this);
-                        recyclerView.setAdapter(adapter);
-                        break;
-                    case ResponseCode.BAD_REQUEST:
-                        Log.e(TAG, "HTTP ERROR 400: BAD_REQUEST");
-                        responseError(getString(R.string.http_error_400_bad_request));
-                        break;
-                    case ResponseCode.NOT_FOUND:
-                        Log.e(TAG, "HTTP ERROR 404: NOT_FOUND");
-                        responseError(getString(R.string.http_error_404_not_found));
-                        break;
-                    default:
-                        Log.e(TAG, "HTTP ERROR " + statusCode);
-                        responseError(getString(R.string.http_error) + " " + statusCode);
-                        break;
-                }
-                progressDialogHide();
-            }
-
-            @Override
-            public void onFailure(Call<List<Film>> call, Throwable t) {
-                // Log error here since request failed
-                Log.e(TAG, t.toString());
-                responseError(getString(R.string.call_on_failure));
-                progressDialogHide();
-            }
-        };
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
-    private void progressDialogShow() {
-        pDialog = new ProgressDialog(MainActivity.this);
-        pDialog.setMessage(getString(R.string.progress_dialog));
-        pDialog.setCancelable(false);
-        pDialog.show();
-    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-    private void progressDialogHide() {
-        if(pDialog != null && pDialog.isShowing()) {
-            try {
-                pDialog.dismiss();
-            } catch (Exception e) {
-                Log.e(TAG, e.getMessage());
-            }
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_about_us) {
+            Toast.makeText(getApplicationContext(), "About us action is selected!", Toast.LENGTH_SHORT).show();
+            return true;
         }
-    }
 
-    private void responseError(String message) {
-        Snackbar snackbar = Snackbar
-                .make(layoutMain, message, Snackbar.LENGTH_INDEFINITE);
-        snackbar.show();
+        if (id == R.id.action_rate_app) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.app.txema.ghiblifilms"));
+            startActivity(browserIntent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void setScreenOrientation() {

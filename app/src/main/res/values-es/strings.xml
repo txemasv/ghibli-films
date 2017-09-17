@@ -1,7 +1,13 @@
 <resources>
-    <string name="http_error_400_bad_request">El servidor no puede procesar la petición debido a un error del cliente.</string>
-    <string name="http_error_404_not_found">El recurso solicitado no ha sido encontrado.</string>
-    <string name="http_error">Error http</string>
+    <string name="app_name">GhibliFilms</string>
+    <string name="cover_title">Ghibli films</string>
+    <string name="http_error">Problema para obtener los datos del servidor</string>
     <string name="call_on_failure">Conexión con el servicio web fallida.</string>
     <string name="progress_dialog">Espere porfavor…</string>
+    <string name="poster">poster</string>
+    <string name="producer">Producer</string>
+    <string name="director">Director</string>
+    <string name="action_about_us">Acerca de</string>
+    <string name="action_rate_app">Puntua esta app</string>
+    <string name="reload">Recargar</string>
 </resources>

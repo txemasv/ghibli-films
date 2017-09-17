@@ -4,10 +4,10 @@
 Android App that shows a list with all films of Studio Ghibli. Touching one item on the list, allows to see the film details.
 
 ## Key Features
+- MVP Architecture.
 - MaterialDesign List based on CardView and RecyclerView. 
-- REST Client JSON using Retrofit and Gson.
+- REST Client JSON using Retrofit, RxAndroid and Gson.
 - Load images with Glide.
-- JUnit test using OkHttp:MockWebServer.
 - IU flexible based on Fragments (one-pane handset, two-panes tablet).
 - Multilanguage.
 

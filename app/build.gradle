@@ -7,8 +7,8 @@ android {
         applicationId "org.app.txema.ghiblifilms"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -42,8 +42,11 @@ dependencies {
     //Material design
     compile 'com.android.support:design:25.3.1'
 
-    //OkHttp: MockWebServer
-    testCompile 'com.squareup.okhttp3:mockwebserver:3.2.0'
+    //Mockito
+    testCompile 'org.mockito:mockito-core:1.10.19'
 
+    //RxAndroid
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
 
 }

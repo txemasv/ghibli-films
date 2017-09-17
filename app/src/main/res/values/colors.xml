@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#5FB378</color>
-    <color name="colorPrimaryDark">#4B8F60</color>
+    <color name="colorPrimary">#5594C1</color>
+    <color name="colorPrimaryDark">#44779B</color>
     <color name="colorAccent">#B76F94</color>
     <color name="viewBg">#f1f5f8</color>
     <color name="film_title_color">#4c4c4c</color>

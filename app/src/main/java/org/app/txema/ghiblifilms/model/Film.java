@@ -102,7 +102,7 @@ public class Film implements Parcelable {
         //The name of the image resource is the
         //name of the film in lowercase and changing spaces by _ adding _poster at the end
         //example: My Neighbor Totoro = my_neighbor_totoro_poster
-        return this.getTitle().toLowerCase().replaceAll(" ", "_").replaceAll("'", "").concat("_poster");
+        return this.getTitle().toLowerCase().replaceAll(" ", "_").replaceAll("'", "");
     }
 
     public int getPoster(Context context) {
@@ -113,7 +113,7 @@ public class Film implements Parcelable {
         //The name of the image resource is the
         //name of the film in lowercase and changing spaces by _  adding _thumbnail at the end
         //example: My Neighbor Totoro = my_neighbor_totoro_thumbnail
-        return this.getTitle().toLowerCase().replaceAll(" ", "_").replaceAll("'", "").concat("_thumbnail");
+        return this.getTitle().toLowerCase().replaceAll(" ", "_").replaceAll("'", "");
     }
 
     public int getThumbnail(Context context) {
