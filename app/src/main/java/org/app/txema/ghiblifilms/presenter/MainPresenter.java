@@ -29,8 +29,7 @@ public class MainPresenter implements MainContract.Presenter {
     public void loadData() {
         view.onDataStarted();
 
-        subscription.add(api
-                .getAllFilms()
+        subscription.add(api.getAllFilms()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<Film>>() {

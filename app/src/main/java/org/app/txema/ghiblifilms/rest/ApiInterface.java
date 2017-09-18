@@ -4,7 +4,6 @@ import org.app.txema.ghiblifilms.model.Film;
 
 import java.util.List;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
 import rx.Observable;
 

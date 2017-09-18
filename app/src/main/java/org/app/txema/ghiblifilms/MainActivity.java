@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import org.app.txema.ghiblifilms.di.App;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -24,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //DI with Dagger
+        ((App) getApplication()).getAppComponent().inject(this);
 
         //Declare AppBarLayout
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);

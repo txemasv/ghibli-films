@@ -1,6 +1,7 @@
 package org.app.txema.ghiblifilms.view.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -12,13 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.app.txema.ghiblifilms.R;
-import org.app.txema.ghiblifilms.view.adapter.FilmsAdapter;
+import org.app.txema.ghiblifilms.di.App;
 import org.app.txema.ghiblifilms.model.Film;
 import org.app.txema.ghiblifilms.presenter.MainContract;
 import org.app.txema.ghiblifilms.presenter.MainPresenter;
-import org.app.txema.ghiblifilms.rest.ApiClient;
+import org.app.txema.ghiblifilms.rest.ApiInterface;
+import org.app.txema.ghiblifilms.view.adapter.FilmsAdapter;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by Txema on 17/09/2017.
@@ -33,6 +37,20 @@ public class ListFragment extends Fragment implements MainContract.View {
     private View viewMain;
     private MainPresenter presenter;
     private Snackbar snackbar;
+
+    @Inject
+    ApiInterface api;
+
+    public ListFragment() {
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        //DI with Dagger
+        ((App) getActivity().getApplication()).getAppComponent().inject(this);
+    }
 
     // onCreateView method is called when Fragment should create its View object hierarchy
     @Override
@@ -62,8 +80,6 @@ public class ListFragment extends Fragment implements MainContract.View {
     }
 
     public void doCallGetData() {
-        //TODO: Inject api object with Dagger
-        ApiClient api = new ApiClient();
         presenter = new MainPresenter(this, api);
         presenter.loadData();
     }
