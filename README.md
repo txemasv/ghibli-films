@@ -1,7 +1,8 @@
 # ghibli-films
 
 ## Description
-Android App that shows a list with all films of Studio Ghibli. Touching one item on the list, allows to see the film details.
+Android App Example (REST API Client and MVP Architecture).
+The App shows a list with all films of Studio Ghibli. Touching one item on the list you can see the film details.
 
 ## Key Features
 - MVP Architecture.
@@ -9,7 +10,8 @@ Android App that shows a list with all films of Studio Ghibli. Touching one item
 - REST Client JSON using Retrofit, RxAndroid and Gson.
 - Dependency injection with Dagger.
 - Load images with Glide.
-- IU flexible based on Fragments (one-pane handset, two-panes tablet).
+- IU flexible based on Fragments.
+- Multiscreen (one-pane handset, two-panes tablet).
 - Multilanguage.
 
 ### Handset one-pane
