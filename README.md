@@ -1,8 +1,9 @@
 # ghibli-films
 
 ## Description
-Android App Example (REST API Client and MVP Architecture).
-The App shows a list with all films of Studio Ghibli. Touching one item on the list you can see the film details.
+Android App Example (REST API Client and MVP Architecture).  
+The App shows a list with all films of Studio Ghibli.  
+Touching one item on the list you can see the film details.
 
 ## Key Features
 - MVP Architecture.
