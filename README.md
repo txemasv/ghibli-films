@@ -7,6 +7,7 @@ Android App that shows a list with all films of Studio Ghibli. Touching one item
 - MVP Architecture.
 - MaterialDesign List based on CardView and RecyclerView. 
 - REST Client JSON using Retrofit, RxAndroid and Gson.
+- Dependency injection with Dagger.
 - Load images with Glide.
 - IU flexible based on Fragments (one-pane handset, two-panes tablet).
 - Multilanguage.
@@ -19,7 +20,7 @@ Android App that shows a list with all films of Studio Ghibli. Touching one item
 ![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
 
 ## Motivation
-Share a complete example that uses main libraries to create a JSON API Client respecting good design practices.
+Share a complete example that uses must have libraries in Android to create a JSON API Client respecting good design practices.
 
 ## Studio Ghibli API JSON
 The Studio Ghibli API catalogs the films found in the worlds of Ghibli: https://ghibliapi.herokuapp.com/#tag/Films
