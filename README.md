@@ -6,14 +6,17 @@ Android App that shows a list with all films of Studio Ghibli. Touching one item
 ## Key Features
 - MVP Architecture.
 - MaterialDesign List based on CardView and RecyclerView. 
-- REST Client JSON using Retrofit, RxAndroid and Gson.
+- REST Client JSON using Retrofit, Gson and RxAndroid.
+- Di with Dagger.
 - Load images with Glide.
-- IU flexible based on Fragments (one-pane handset, two-panes tablet).
-- Multilanguage.
+- IU flexible based on Fragments.
+- MultiScreen (one-pane handset, two-panes tablet).
+- MultiLanguage.
+- AdMob included.
 
 ### Handset one-pane
 ![handset parent](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset01.png)
-![hadset child](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset02.png)
+![handset child](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset02.png)
 
 ### Tablet two-panes
 ![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
