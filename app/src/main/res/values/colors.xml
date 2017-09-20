@@ -6,4 +6,5 @@
     <color name="viewBg">#f1f5f8</color>
     <color name="film_title_color">#4c4c4c</color>
     <color name="textShadow">#7F000000</color>
+    <color name="title_color">#4c4c4c</color>
 </resources>

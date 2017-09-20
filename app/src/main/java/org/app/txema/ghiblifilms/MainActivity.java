@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import org.app.txema.ghiblifilms.di.App;
+import org.app.txema.ghiblifilms.view.fragment.AboutUsFragment;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -116,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about_us) {
-            Toast.makeText(getApplicationContext(), "About us action is selected!", Toast.LENGTH_SHORT).show();
+            DialogFragment newFragment = new AboutUsFragment();
+            newFragment.show(getSupportFragmentManager(), "aboutUs");
             return true;
         }
 

@@ -8,9 +8,23 @@
     <dimen name="film_poster_height">210dp</dimen>
 
     <dimen name="default_padding">16dp</dimen>
+    <dimen name="large_padding">32dp</dimen>
     <dimen name="default_textSize">16sp</dimen>
     <dimen name="title_textSize">16sp</dimen>
     <dimen name="description_textSize">14sp</dimen>
 
     <dimen name="detail_backdrop_height">250dp</dimen>
+
+    <dimen name="thumbnail_width">180dp</dimen>
+    <dimen name="thumbnail_height">180dp</dimen>
+
+    <dimen name="poster_width">300dp</dimen>
+    <dimen name="poster_height">300dp</dimen>
+
+    <dimen name="large_title_textSize">20sp</dimen>
+
+
+    <dimen name="about_icon_size">120dp</dimen>
+
+
 </resources>

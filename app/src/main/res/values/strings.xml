@@ -10,4 +10,10 @@
     <string name="action_about_us">About us</string>
     <string name="action_rate_app">Rate app</string>
     <string name="reload" >Reload</string>
+    <string name="app_description">GhibliFilms is an Open Source Project created by TxemaSV.</string>
+    <string name="version">Version 1.3</string>
+    <string name="my_email">txemasv@gmail.com</string>
+    <string name="my_github">github.com/txemasv</string>
+    <string name="api_link">ghibliapi.herokuapp.com</string>
+    <string name="close">Ok</string>
 </resources>
