@@ -1,13 +1,14 @@
 # ghibli-films
 
 ## Description
-Android App that shows a list with all films of Studio Ghibli. Touching one item on the list, allows to see the film details.
+Android App that shows a list with all films of Studio Ghibli.  
+Touching one item on the list allows to see the film details.
 
 ## Key Features
 - MVP Architecture.
 - MaterialDesign List based on CardView and RecyclerView. 
 - REST Client JSON using Retrofit, Gson and RxAndroid.
-- Di with Dagger.
+- DI with Dagger.
 - Load images with Glide.
 - IU flexible based on Fragments.
 - MultiScreen (one-pane handset, two-panes tablet).
@@ -22,7 +23,7 @@ Android App that shows a list with all films of Studio Ghibli. Touching one item
 ![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
 
 ## Motivation
-Share a complete example that uses main libraries to create a JSON API Client respecting good design practices.
+Share a complete example that uses important Android libraries to create a JSON API Client respecting good design practices.
 
 ## Studio Ghibli API JSON
 The Studio Ghibli API catalogs the films found in the worlds of Ghibli: https://ghibliapi.herokuapp.com/#tag/Films
