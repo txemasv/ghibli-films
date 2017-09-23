@@ -1,8 +1,7 @@
 # ghibli-films
 
 ## Description
-Android App that shows a list with all films of Studio Ghibli.  
-Touching one item on the list allows to see the film details.
+Android App that shows interactive lists with info about films, characters and locations of Studio Ghibli's world.  
 
 ## Key Features
 - MVP Architecture.
@@ -13,7 +12,7 @@ Touching one item on the list allows to see the film details.
 - IU flexible based on Fragments.
 - MultiScreen (one-pane handset, two-panes tablet).
 - MultiLanguage.
-- AdMob included.
+- Navigation Drawer.
 
 ### Handset one-pane
 ![handset parent](https://github.com/txemasv/ghibli-films/blob/master/screenshot/handset01.png)
