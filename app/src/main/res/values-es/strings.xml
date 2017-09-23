@@ -15,5 +15,18 @@
     <string name="my_email">txemasv@gmail.com</string>
     <string name="my_github">github.com/txemasv</string>
     <string name="api_link">ghibliapi.herokuapp.com</string>
-    <string name="close">Ok</string>
+    <string name="close">OK</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>Films</item>
+        <item>People</item>
+        <item>Locations</item>
+    </string-array>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="name">Name</string>
+    <string name="climate">Climate</string>
+
 </resources>

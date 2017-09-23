@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/viewBg"
     tools:context="org.app.txema.ghiblifilms.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/app_bar_main">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        ads:adUnitId="@string/adUnitId">
     </com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

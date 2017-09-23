@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- name -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:text="Name"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- poster -->
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="@dimen/thumbnail_width"
+        android:layout_height="@dimen/thumbnail_width"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/name"
+        android:contentDescription="@string/poster"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding" />
+
+    <!-- age -->
+    <TextView
+        android:id="@+id/age_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/poster"
+        android:layout_alignLeft="@+id/poster"
+        android:text="Age"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:layout_below="@+id/age_title"
+        android:layout_alignLeft="@+id/poster"
+        android:text="age"
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- gender -->
+    <TextView
+        android:id="@+id/gender_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/age"
+        android:layout_alignLeft="@+id/poster"
+        android:text="Gender"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:layout_below="@+id/gender_title"
+        android:layout_alignLeft="@+id/poster"
+        android:text="gender"
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- eye color -->
+    <TextView
+        android:id="@+id/eye_color_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/gender"
+        android:layout_alignLeft="@+id/poster"
+        android:text="Eye color"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <TextView
+        android:id="@+id/eye_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:layout_below="@+id/eye_color_title"
+        android:layout_alignLeft="@+id/poster"
+        android:text="eye color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- hair color -->
+    <TextView
+        android:id="@+id/hair_color_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/eye_color"
+        android:layout_alignLeft="@+id/poster"
+        android:text="Hair color"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <TextView
+        android:id="@+id/hair_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:layout_below="@+id/hair_color_title"
+        android:layout_alignLeft="@+id/poster"
+        android:text="hair color"
+        android:textSize="@dimen/title_textSize"/>
+
+</RelativeLayout>
+

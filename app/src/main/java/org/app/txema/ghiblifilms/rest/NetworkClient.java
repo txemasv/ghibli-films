@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 @Module
-public class ApiClient {
+public class NetworkClient {
     public static final String BASE_URL = "https://ghibliapi.herokuapp.com/";
 
     @Provides
@@ -28,7 +28,7 @@ public class ApiClient {
 
     @Provides
     @Singleton
-    public ApiInterface getApiInterface(Retrofit retrofit) {
-        return retrofit.create(ApiInterface.class);
+    public NetworkApi getApiInterface(Retrofit retrofit) {
+        return retrofit.create(NetworkApi.class);
     }
 }

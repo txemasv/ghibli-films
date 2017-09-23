@@ -12,7 +12,7 @@
         android:paddingRight="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding"
         android:text="Title"
-        android:textColor="@color/film_title_color"
+        android:textColor="@color/item_title_color"
         android:textSize="@dimen/title_textSize"/>
 
     <TextView
@@ -60,7 +60,7 @@
         android:paddingRight="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding"
         android:text="@string/director"
-        android:textColor="@color/film_title_color"
+        android:textColor="@color/item_title_color"
         android:textSize="@dimen/title_textSize" />
 
     <TextView
@@ -84,7 +84,7 @@
         android:paddingRight="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding"
         android:text="@string/producer"
-        android:textColor="@color/film_title_color"
+        android:textColor="@color/item_title_color"
         android:textSize="@dimen/title_textSize" />
 
     <TextView

@@ -12,10 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import org.app.txema.ghiblifilms.view.activity.DetailsActivity;
-import org.app.txema.ghiblifilms.view.fragment.FilmDetailsFragment;
 import org.app.txema.ghiblifilms.R;
-import org.app.txema.ghiblifilms.model.Film;
+import org.app.txema.ghiblifilms.model.Location;
+import org.app.txema.ghiblifilms.view.activity.DetailsActivity;
+import org.app.txema.ghiblifilms.view.fragment.LocationDetailsFragment;
 
 import java.util.List;
 
@@ -23,32 +23,31 @@ import java.util.List;
  * Created by Txema on 21/06/2017.
  */
 
-public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder> {
+public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.MyViewHolder> {
 
-    private List<Film> films;
+    private List<Location> locations;
     private Context context;
 
-    //1. create ViewHolder
+    //1. create static ViewHolder
     class MyViewHolder extends RecyclerView.ViewHolder {
         private View cardView;
         private ImageView thumbnail;
-        private TextView title, releaseDate;
+        private TextView name;
         MyViewHolder(View itemView) {
             super(itemView);
             //find view items from layout
             cardView = itemView.findViewById(R.id.card_view);
-            title = (TextView) itemView.findViewById(R.id.title);
+            name = (TextView) itemView.findViewById(R.id.name);
             thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
-            releaseDate = (TextView) itemView.findViewById(R.id.release_date);
         }
     }
 
     //2. create constructor (context, listItems)
-    public FilmsAdapter(List<Film> films, Context context) {
-        this.films = films;
+    public LocationsAdapter(List<Location> locations, Context context) {
+        this.locations = locations;
         this.context = context;
-        if(!films.isEmpty()) {
-            setDefaultFilmDetails(films.get(0));
+        if(!locations.isEmpty()) {
+            setDefaultCharacterDetails(locations.get(0));
         }
     }
 
@@ -56,7 +55,7 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //load itemView
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_film, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_location, parent, false);
 
         //return viewHolder
         return new MyViewHolder(itemView);
@@ -64,57 +63,56 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        //load item (Film)
-        final Film film = films.get(position);
+        //load item (Location)
+        final Location location = locations.get(position);
 
         //set params on view item
-        holder.title.setText(film.getTitle());
-        holder.releaseDate.setText(film.getReleaseDate());
+        holder.name.setText(location.getName());
 
         // loading album cover using Glide library
-        Glide.with(context).load(film.getThumbnail(context)).centerCrop().into(holder.thumbnail);
+        Glide.with(context).load(location.getThumbnail(context)).centerCrop().into(holder.thumbnail);
 
         //add listeners on items
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateDetails(film);
+                updateDetails(location);
             }
         });
     }
 
-    private void updateDetails(Film film) {
+    private void updateDetails(Location location) {
         // Capture the detail fragment from the activity layout
-        FilmDetailsFragment detailsFrag = (FilmDetailsFragment)
+        LocationDetailsFragment detailsFrag = (LocationDetailsFragment)
                 ((AppCompatActivity)context).getSupportFragmentManager().
                         findFragmentById(R.id.details_fragment);
 
         // If detailsFrag is available
         if (detailsFrag != null) {
             //two-pane layout
-            detailsFrag.updateDetailsView(film);
+            detailsFrag.updateDetailsView(location);
         } else {
             //one-pane layout
             Intent nextActivity = new Intent(context, DetailsActivity.class);
-            nextActivity.putExtra("film", film);
+            nextActivity.putExtra("location", location);
             context.startActivity(nextActivity);
         }
     }
 
-    private void setDefaultFilmDetails(Film film) {
+    private void setDefaultCharacterDetails(Location location) {
         // Capture the detail fragment from the activity layout
-        FilmDetailsFragment detailsFrag = (FilmDetailsFragment)
+        LocationDetailsFragment detailsFrag = (LocationDetailsFragment)
                 ((AppCompatActivity)context).getSupportFragmentManager().findFragmentById(R.id.details_fragment);
 
         // If detailsFrag is available, we put a default film on right pane.
         if (detailsFrag != null) {
             //two-pane layout
-            detailsFrag.updateDetailsView(film);
+            detailsFrag.updateDetailsView(location);
         }
     }
 
     @Override
     public int getItemCount() {
-        return films.size();
+        return locations.size();
     }
 }

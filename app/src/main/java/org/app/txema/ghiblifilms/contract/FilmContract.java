@@ -1,4 +1,4 @@
-package org.app.txema.ghiblifilms.presenter;
+package org.app.txema.ghiblifilms.contract;
 
 import org.app.txema.ghiblifilms.model.Film;
 
@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Txema on 17/09/2017.
  */
 
-public interface MainContract {
+public interface FilmContract {
 
     interface View {
         void onDataStarted();

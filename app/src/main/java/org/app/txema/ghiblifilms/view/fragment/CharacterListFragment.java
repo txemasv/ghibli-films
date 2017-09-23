@@ -1,11 +1,8 @@
 package org.app.txema.ghiblifilms.view.fragment;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,12 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.app.txema.ghiblifilms.R;
+import org.app.txema.ghiblifilms.contract.CharacterContract;
 import org.app.txema.ghiblifilms.di.App;
-import org.app.txema.ghiblifilms.model.Film;
-import org.app.txema.ghiblifilms.presenter.MainContract;
-import org.app.txema.ghiblifilms.presenter.MainPresenter;
-import org.app.txema.ghiblifilms.rest.ApiInterface;
-import org.app.txema.ghiblifilms.view.adapter.FilmsAdapter;
+import org.app.txema.ghiblifilms.model.Character;
+import org.app.txema.ghiblifilms.presenter.CharacterPresenter;
+import org.app.txema.ghiblifilms.rest.NetworkApi;
+import org.app.txema.ghiblifilms.view.adapter.CharactersAdapter;
+import org.app.txema.ghiblifilms.view.util.ViewFragment;
 
 import java.util.List;
 
@@ -28,20 +26,17 @@ import javax.inject.Inject;
  * Created by Txema on 17/09/2017.
  */
 
-public class ListFragment extends Fragment implements MainContract.View {
+public class CharacterListFragment extends ViewFragment implements CharacterContract.View {
 
-    private static final String TAG = ListFragment.class.getSimpleName();
 
     private RecyclerView recyclerView;
-    private ProgressDialog pDialog;
-    private View viewMain;
-    private MainPresenter presenter;
-    private Snackbar snackbar;
+    private CharacterPresenter presenter;
+
 
     @Inject
-    ApiInterface api;
+    NetworkApi api;
 
-    public ListFragment() {
+    public CharacterListFragment() {
     }
 
     @Override
@@ -72,42 +67,43 @@ public class ListFragment extends Fragment implements MainContract.View {
         recyclerView.setHasFixedSize(true);
 
         //Use the layout manager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
         //Load data
-        doCallGetData();
+        requestPresenterGetData();
     }
 
-    public void doCallGetData() {
-        presenter = new MainPresenter(this, api);
+    @Override
+    public void requestPresenterGetData() {
+        presenter = new CharacterPresenter(this, api);
         presenter.loadData();
     }
 
     @Override
     public void onDataStarted() {
-        progressDialogShow();
+        progressShow();
     }
 
     @Override
     public void onDataCompleted() {
-        progressDialogHide();
+        progressHide();
     }
 
     @Override
-    public void showData(List<Film> films) {
+    public void showData(List<Character> characters) {
         //wait for debugger (NOT IN RUN MODE!)
         //android.os.Debug.waitForDebugger();
         //Log.d(TAG, "wait for debugger ");
 
-        FilmsAdapter adapter = new FilmsAdapter(films, getActivity());
+        CharactersAdapter adapter = new CharactersAdapter(characters, getActivity());
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onDataError(Throwable e) {
         Log.e(TAG, e.getMessage());
-        progressDialogHide();
+        progressHide();
         responseError(getString(R.string.http_error));
     }
 
@@ -115,35 +111,5 @@ public class ListFragment extends Fragment implements MainContract.View {
     public void onStop() {
         presenter.onStop();
         super.onStop();
-    }
-
-    private void progressDialogShow() {
-        pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage(getString(R.string.progress_dialog));
-        pDialog.setCancelable(false);
-        pDialog.show();
-    }
-
-    private void progressDialogHide() {
-        if (pDialog != null && pDialog.isShowing()) {
-            try {
-                pDialog.dismiss();
-            } catch (Exception e) {
-                Log.e(TAG, e.getMessage());
-            }
-        }
-    }
-
-    private void responseError(String message) {
-        snackbar = Snackbar
-                .make(viewMain, message, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.reload, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        snackbar.dismiss();
-                        doCallGetData();
-                    }
-                });
-        snackbar.show();
     }
 }

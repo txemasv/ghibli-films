@@ -23,8 +23,14 @@
 
     <dimen name="large_title_textSize">20sp</dimen>
 
-
+    <dimen name="nav_drawer_width">260dp</dimen>
     <dimen name="about_icon_size">120dp</dimen>
+
+    <dimen name="location_thumbnail_width">210dp</dimen>
+    <dimen name="location_thumbnail_height">150dp</dimen>
+
+    <dimen name="character_thumbnail_width">150dp</dimen>
+    <dimen name="character_thumbnail_height">150dp</dimen>
 
 
 </resources>

@@ -34,7 +34,7 @@
                 android:paddingLeft="@dimen/default_padding"
                 android:paddingRight="@dimen/default_padding"
                 android:paddingTop="@dimen/default_padding"
-                android:textColor="@color/film_title_color"
+                android:textColor="@color/item_title_color"
                 android:textSize="@dimen/default_textSize" />
 
             <TextView

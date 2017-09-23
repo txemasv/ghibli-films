@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- name -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:text="@string/name"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- poster -->
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="@dimen/location_thumbnail_width"
+        android:layout_height="@dimen/location_thumbnail_height"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/name"
+        android:contentDescription="@string/poster"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding" />
+
+    <!-- climate -->
+    <TextView
+        android:id="@+id/climate_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/poster"
+        android:layout_alignLeft="@+id/poster"
+        android:text="@string/climate"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <TextView
+        android:id="@+id/climate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/poster"
+        android:layout_alignRight="@+id/poster"
+        android:text=""
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- terrain -->
+    <TextView
+        android:id="@+id/terrain_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/climate"
+        android:layout_alignLeft="@+id/poster"
+        android:text="@string/terrain"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <TextView
+        android:id="@+id/terrain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/climate"
+        android:layout_alignRight="@+id/poster"
+        android:text=""
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- surface water -->
+    <TextView
+        android:id="@+id/surface_water_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/terrain"
+        android:layout_alignLeft="@+id/poster"
+        android:text="@string/surface_water"
+        android:textColor="@color/item_title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <TextView
+        android:id="@+id/surface_water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@+id/terrain"
+        android:layout_alignRight="@+id/poster"
+        android:text=""
+        android:textSize="@dimen/title_textSize"/>
+
+</RelativeLayout>
+

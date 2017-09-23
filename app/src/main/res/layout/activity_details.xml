@@ -26,11 +26,10 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <fragment
-            android:name="org.app.txema.ghiblifilms.view.fragment.DetailsFragment"
-            android:id="@+id/detailsFragment"
+        <FrameLayout
+            android:id="@+id/details_fragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"/>
 
     </android.support.v4.widget.NestedScrollView>
 

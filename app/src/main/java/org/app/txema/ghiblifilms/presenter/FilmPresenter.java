@@ -1,7 +1,8 @@
 package org.app.txema.ghiblifilms.presenter;
 
+import org.app.txema.ghiblifilms.contract.FilmContract;
 import org.app.txema.ghiblifilms.model.Film;
-import org.app.txema.ghiblifilms.rest.ApiInterface;
+import org.app.txema.ghiblifilms.rest.NetworkApi;
 
 import java.util.List;
 
@@ -14,13 +15,13 @@ import rx.subscriptions.CompositeSubscription;
  * Created by Txema on 17/09/2017.
  */
 
-public class MainPresenter implements MainContract.Presenter {
+public class FilmPresenter implements FilmContract.Presenter {
 
     private CompositeSubscription subscription = new CompositeSubscription();
-    private ApiInterface api;
-    private MainContract.View view;
+    private NetworkApi api;
+    private FilmContract.View view;
 
-    public MainPresenter(MainContract.View view, ApiInterface api) {
+    public FilmPresenter(FilmContract.View view, NetworkApi api) {
         this.view = view;
         this.api = api;
     }
