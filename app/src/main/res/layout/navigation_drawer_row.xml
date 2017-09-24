@@ -6,20 +6,20 @@
 
     <ImageView
         android:id="@+id/icon_nav_draw_item"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="18dp"
+        android:src="@drawable/ic_face"
+        android:layout_margin="15dp"
         android:layout_width="20dp"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"
+        android:layout_marginTop="15dp"
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@+id/title"
+        android:text="Characters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/icon_nav_draw_item"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="18dp"
-        android:textSize="18dp"
-        android:text="item"
-        android:textStyle="bold" />
+        android:layout_alignTop="@+id/icon_nav_draw_item"
+        android:textSize="15dp" />
 
 </RelativeLayout>

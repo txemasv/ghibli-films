@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import org.app.txema.ghiblifilms.R;
-import org.app.txema.ghiblifilms.model.NavDrawerItem;
+import org.app.txema.ghiblifilms.model.NavigationDrawerItem;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.MyViewHolder> {
-    List<NavDrawerItem> data = Collections.emptyList();
+    List<NavigationDrawerItem> data = Collections.emptyList();
     private LayoutInflater inflater;
     private Context context;
 
@@ -38,7 +38,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     }
 
     //2. create constructor (context, listItems)
-    public NavigationDrawerAdapter(Context context, List<NavDrawerItem> data) {
+    public NavigationDrawerAdapter(Context context, List<NavigationDrawerItem> data) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.data = data;
@@ -47,26 +47,26 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     //3. override the 3 methods
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.nav_drawer_row, parent, false);
+        View view = inflater.inflate(R.layout.navigation_drawer_row, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        NavDrawerItem current = data.get(position);
+        NavigationDrawerItem current = data.get(position);
         holder.title.setText(current.getTitle());
 
         //Select icon
         switch (position) {
-            case NavDrawerItem.FILMS:
-                Glide.with(context).load(R.drawable.ic_film).centerCrop().into(holder.icon);
+            case NavigationDrawerItem.FILMS:
+                Glide.with(context).load(R.drawable.ic_film).into(holder.icon);
                 break;
-            case NavDrawerItem.CHARACTERS:
-                Glide.with(context).load(R.drawable.ic_face).centerCrop().into(holder.icon);
+            case NavigationDrawerItem.CHARACTERS:
+                Glide.with(context).load(R.drawable.ic_face).into(holder.icon);
                 break;
-            case NavDrawerItem.LOCATIONS:
-                Glide.with(context).load(R.drawable.ic_location).centerCrop().into(holder.icon);
+            case NavigationDrawerItem.LOCATIONS:
+                Glide.with(context).load(R.drawable.ic_location).into(holder.icon);
                 break;
         }
     }

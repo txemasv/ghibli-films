@@ -58,10 +58,18 @@ public class CharacterDetailsFragment extends Fragment {
         if (character != null) {
             //Insert film data into layout
             nameView.setText(character.getName());
-            genderView.setText(character.getGender());
-            ageView.setText(character.getAge());
+            String gender = character.getGender();
+            if (gender.trim().equals("")) {
+                gender = getString(R.string.unknown);
+            }
+            genderView.setText(gender);
+            String age = character.getAge();
+            if (age.trim().equals("")) {
+                age = getString(R.string.unknown);
+            }
+            ageView.setText(age);
             try {
-                Glide.with(this).load(character.getPoster(getActivity())).centerCrop().into(posterView);
+                Glide.with(this).load(character.getPoster(getActivity())).fitCenter().into(posterView);
             } catch (Exception e) {
                 e.printStackTrace();
             }

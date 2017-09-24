@@ -28,5 +28,6 @@
     <string name="drawer_close">Close</string>
     <string name="name">Name</string>
     <string name="climate">Climate</string>
+    <string name="unknown">Unknown</string>
 
 </resources>

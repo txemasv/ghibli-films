@@ -31,5 +31,6 @@
     <string name="climate">Climate</string>
     <string name="terrain">Terrain</string>
     <string name="surface_water">Surface water</string>
+    <string name="unknown">Unknown</string>
 
 </resources>

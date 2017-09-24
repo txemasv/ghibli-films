@@ -19,8 +19,8 @@
     <!-- poster -->
     <ImageView
         android:id="@+id/poster"
-        android:layout_width="@dimen/thumbnail_width"
-        android:layout_height="@dimen/thumbnail_width"
+        android:layout_width="@dimen/poster_width"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/name"
         android:contentDescription="@string/poster"
@@ -60,8 +60,8 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding"
-        android:layout_below="@+id/age"
-        android:layout_alignLeft="@+id/poster"
+        android:layout_below="@+id/poster"
+        android:layout_alignRight="@+id/poster"
         android:text="Gender"
         android:textColor="@color/item_title_color"
         android:textSize="@dimen/title_textSize"/>
@@ -73,7 +73,7 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:layout_below="@+id/gender_title"
-        android:layout_alignLeft="@+id/poster"
+        android:layout_alignRight="@+id/poster"
         android:text="gender"
         android:textSize="@dimen/title_textSize"/>
 
@@ -110,8 +110,8 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding"
-        android:layout_below="@+id/eye_color"
-        android:layout_alignLeft="@+id/poster"
+        android:layout_below="@+id/gender"
+        android:layout_alignRight="@+id/poster"
         android:text="Hair color"
         android:textColor="@color/item_title_color"
         android:textSize="@dimen/title_textSize"/>
@@ -123,7 +123,7 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:layout_below="@+id/hair_color_title"
-        android:layout_alignLeft="@+id/poster"
+        android:layout_alignRight="@+id/poster"
         android:text="hair color"
         android:textSize="@dimen/title_textSize"/>
 

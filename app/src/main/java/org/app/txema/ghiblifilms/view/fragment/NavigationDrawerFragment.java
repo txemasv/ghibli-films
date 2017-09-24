@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import org.app.txema.ghiblifilms.R;
-import org.app.txema.ghiblifilms.model.NavDrawerItem;
+import org.app.txema.ghiblifilms.model.NavigationDrawerItem;
 import org.app.txema.ghiblifilms.view.adapter.NavigationDrawerAdapter;
 
 import java.util.ArrayList;
@@ -50,12 +50,12 @@ public class NavigationDrawerFragment extends Fragment {
         this.drawerListener = listener;
     }
 
-    public static List<NavDrawerItem> getData() {
-        List<NavDrawerItem> data = new ArrayList<>();
+    public static List<NavigationDrawerItem> getData() {
+        List<NavigationDrawerItem> data = new ArrayList<>();
 
         // preparing navigation drawer items
         for (int i = 0; i < titles.length; i++) {
-            NavDrawerItem navItem = new NavDrawerItem();
+            NavigationDrawerItem navItem = new NavigationDrawerItem();
             navItem.setTitle(titles[i]);
             data.add(navItem);
         }
@@ -104,7 +104,7 @@ public class NavigationDrawerFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         navDrawerCover = (ImageView) view.findViewById(R.id.nav_drawer_cover);
         try {
-            Glide.with(this).load(R.drawable.nav_drawer_cover).fitCenter().into(navDrawerCover);
+            Glide.with(this).load(R.drawable.navigation_drawer_cover).fitCenter().into(navDrawerCover);
         } catch (Exception e) {
             e.printStackTrace();
         }

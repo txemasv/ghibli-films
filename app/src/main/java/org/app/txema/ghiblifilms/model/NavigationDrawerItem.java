@@ -4,7 +4,7 @@ package org.app.txema.ghiblifilms.model;
  * Created by Txema on 13/08/2017.
  */
 
-public class NavDrawerItem {
+public class NavigationDrawerItem {
 
     public static final int FILMS = 0;
     public static final int CHARACTERS = 1;
@@ -14,11 +14,11 @@ public class NavDrawerItem {
     private boolean showNotify;
     private String title;
 
-    public NavDrawerItem() {
+    public NavigationDrawerItem() {
 
     }
 
-    public NavDrawerItem(boolean showNotify, String title) {
+    public NavigationDrawerItem(boolean showNotify, String title) {
         this.showNotify = showNotify;
         this.title = title;
     }

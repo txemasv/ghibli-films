@@ -22,7 +22,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdView;
 
 import org.app.txema.ghiblifilms.di.App;
-import org.app.txema.ghiblifilms.model.NavDrawerItem;
+import org.app.txema.ghiblifilms.model.NavigationDrawerItem;
 import org.app.txema.ghiblifilms.view.fragment.AboutUsFragment;
 import org.app.txema.ghiblifilms.view.fragment.CharacterDetailsFragment;
 import org.app.txema.ghiblifilms.view.fragment.CharacterListFragment;
@@ -129,28 +129,28 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
     @Override
     public void onDrawerItemSelected(View view, int position) {
-        if (position != NavDrawerItem.SELECTED) {
+        if (position != NavigationDrawerItem.SELECTED) {
             switch (position) {
-                case NavDrawerItem.FILMS:
+                case NavigationDrawerItem.FILMS:
                     if (getResources().getBoolean(R.bool.two_panes)) {
                         insertFilmDetailsFragment();
                     }
                     insertFilmListFragment();
                     break;
-                case NavDrawerItem.CHARACTERS:
+                case NavigationDrawerItem.CHARACTERS:
                     if (getResources().getBoolean(R.bool.two_panes)) {
                         insertCharacterDetailsFragment();
                     }
                     insertCharacterListFragment();
                     break;
-                case NavDrawerItem.LOCATIONS:
+                case NavigationDrawerItem.LOCATIONS:
                     if (getResources().getBoolean(R.bool.two_panes)) {
                         insertLocationDetailsFragment();
                     }
                     insertLocationsListFragment();
                     break;
             }
-            NavDrawerItem.SELECTED = position;
+            NavigationDrawerItem.SELECTED = position;
         }
     }
 

@@ -87,10 +87,7 @@ public class Character implements Parcelable {
     }
 
     private String getPosterName() {
-        //The name of the image resource is the
-        //name of the character in lowercase and changing spaces by _ adding _poster at the end
-        //example: My Neighbor Totoro = my_neighbor_totoro_poster
-        return this.getName().toLowerCase().replaceAll(" ", "_").replaceAll("'", "");
+        return getThumbnailName();
     }
 
     public int getPoster(Context context) {
@@ -98,10 +95,8 @@ public class Character implements Parcelable {
     }
 
     private String getThumbnailName() {
-        //The name of the image resource is the
-        //name of the character in lowercase and changing spaces by _  adding _thumbnail at the end
-        //example: My Neighbor Totoro = my_neighbor_totoro_thumbnail
-        return this.getName().toLowerCase().replaceAll(" ", "_").replaceAll("'", "");
+        //example: totoro = portrait_totoro
+        return "portrait_" + this.getName().toLowerCase().replaceAll(" ", "_").replaceAll("'", "").replaceAll("-", "_");
     }
 
     public int getThumbnail(Context context) {
