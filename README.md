@@ -1,4 +1,4 @@
-# ghibli-films
+# GhibliFilms
 
 ## Description
 Android App that shows interactive lists with info about films, characters and locations of Studio Ghibli's world.  
