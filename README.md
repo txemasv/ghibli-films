@@ -2,6 +2,7 @@
 
 ## Description
 Android App that shows interactive lists with info about films, characters and locations of Studio Ghibli's world.  
+**Play Store** https://play.google.com/store/apps/details?id=org.app.txema.ghiblifilms
 
 ## Key Features
 - MVP Architecture.
