@@ -8,15 +8,15 @@
     <!-- logo -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="@dimen/about_icon_size"
-        android:layout_height="@dimen/about_icon_size"
+        android:layout_width="@dimen/about_icon_width"
+        android:layout_height="@dimen/about_icon_height"
         android:adjustViewBounds="false"
         android:contentDescription="@string/app_name"
         android:layout_centerHorizontal="true"
         android:padding="@dimen/default_padding"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:gravity="center"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/ic_totoro" />
 
     <TextView
         android:id="@+id/title"
@@ -32,7 +32,7 @@
     <!-- description -->
     <TextView
         android:id="@+id/description"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/large_padding"
         android:text="@string/app_description"
@@ -42,41 +42,45 @@
         android:gravity="center"/>
 
     <!-- email -->
+    <ImageView
+        android:id="@+id/ic_email"
+        android:src="@drawable/ic_email"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/description"
+        android:scaleType="fitXY"/>
+
     <TextView
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:text="txemasv@gmail.com"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/large_padding"
-        android:text="@string/my_email"
-        android:textColor="@color/title_color"
-        android:textSize="@dimen/title_textSize"
-        android:layout_below="@+id/description"
-        android:gravity="center"/>
+        android:layout_toRightOf="@+id/ic_email"
+        android:layout_alignTop="@+id/ic_email"
+        android:textSize="15dp" />
 
     <!-- github link-->
+    <ImageView
+        android:id="@+id/ic_github"
+        android:src="@drawable/ic_github"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/email"
+        android:scaleType="fitXY"/>
+
     <TextView
         android:id="@+id/github"
-        android:layout_width="match_parent"
+        android:text="https://github.com/txemasv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/large_padding"
-        android:text="@string/my_github"
-        android:textColor="@color/title_color"
-        android:textSize="@dimen/title_textSize"
-        android:layout_below="@+id/email"
-        android:gravity="center">
-
-    </TextView>
-
-    <!-- api link -->
-    <TextView
-        android:id="@+id/api"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/large_padding"
-        android:text="@string/api_link"
-        android:textColor="@color/title_color"
-        android:textSize="@dimen/title_textSize"
-        android:layout_below="@+id/github"
-        android:gravity="center"/>
+        android:layout_toRightOf="@+id/ic_github"
+        android:layout_alignTop="@+id/ic_github"
+        android:textSize="15dp" />
 
 </RelativeLayout>

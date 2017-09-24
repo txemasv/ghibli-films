@@ -19,7 +19,11 @@
 
             <ImageView
                 android:id="@+id/thumbnail"
-                android:layout_width="@dimen/location_thumbnail_width"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
                 android:layout_height="@dimen/location_thumbnail_height"
                 android:layout_centerHorizontal="true"
                 android:clickable="false"
@@ -32,9 +36,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/thumbnail"
                 android:layout_centerHorizontal="true"
-                android:paddingLeft="@dimen/default_padding"
-                android:paddingRight="@dimen/default_padding"
-                android:paddingTop="@dimen/default_padding"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
                 android:textColor="@color/item_title_color"
                 android:textSize="@dimen/default_textSize" />
 

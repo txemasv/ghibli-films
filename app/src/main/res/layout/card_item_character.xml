@@ -34,7 +34,8 @@
                 android:layout_centerHorizontal="true"
                 android:paddingLeft="@dimen/default_padding"
                 android:paddingRight="@dimen/default_padding"
-                android:paddingTop="@dimen/default_padding"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:textColor="@color/item_title_color"
                 android:textSize="@dimen/default_textSize"/>
 

@@ -19,13 +19,14 @@
     <!-- poster -->
     <ImageView
         android:id="@+id/poster"
-        android:layout_width="@dimen/location_thumbnail_width"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/location_thumbnail_height"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/name"
         android:contentDescription="@string/poster"
-        android:paddingLeft="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding" />
+        android:padding="@dimen/default_padding"
+        android:clickable="false"
+        android:scaleType="fitXY" />
 
     <!-- climate -->
     <TextView

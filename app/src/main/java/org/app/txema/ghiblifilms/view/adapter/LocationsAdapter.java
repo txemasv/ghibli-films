@@ -17,6 +17,7 @@ import org.app.txema.ghiblifilms.model.Location;
 import org.app.txema.ghiblifilms.view.activity.DetailsActivity;
 import org.app.txema.ghiblifilms.view.fragment.LocationDetailsFragment;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -46,6 +47,17 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.MyVi
     public LocationsAdapter(List<Location> locations, Context context) {
         this.locations = locations;
         this.context = context;
+
+        //Delete items without image
+        for (Iterator<Location> i = locations.listIterator(); i.hasNext(); ) {
+            Location location = i.next();
+            int checkExistence = location.getPoster(context);
+            if (checkExistence == 0 ) {
+                i.remove();
+            }
+        }
+
+        //set default image
         if(!locations.isEmpty()) {
             setDefaultCharacterDetails(locations.get(0));
         }
