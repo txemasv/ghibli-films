@@ -25,11 +25,11 @@ import org.app.txema.ghiblifilms.di.App;
 import org.app.txema.ghiblifilms.model.NavigationDrawerItem;
 import org.app.txema.ghiblifilms.view.fragment.AboutUsFragment;
 import org.app.txema.ghiblifilms.view.fragment.CharacterDetailsFragment;
-import org.app.txema.ghiblifilms.view.fragment.CharacterListFragment;
+import org.app.txema.ghiblifilms.view.fragment.CharacterListFragmentList;
 import org.app.txema.ghiblifilms.view.fragment.FilmDetailsFragment;
-import org.app.txema.ghiblifilms.view.fragment.FilmListFragment;
+import org.app.txema.ghiblifilms.view.fragment.FilmListFragmentList;
 import org.app.txema.ghiblifilms.view.fragment.LocationDetailsFragment;
-import org.app.txema.ghiblifilms.view.fragment.LocationListFragment;
+import org.app.txema.ghiblifilms.view.fragment.LocationListFragmentList;
 import org.app.txema.ghiblifilms.view.fragment.NavigationDrawerFragment;
 
 import static org.app.txema.ghiblifilms.view.util.Tag.TAG_DETAILS_FRAGMENT;
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     //films list fragment
     private void insertFilmListFragment() {
         // Create a new Fragment to be placed in the activity layout
-        FilmListFragment fragment = new FilmListFragment();
+        FilmListFragmentList fragment = new FilmListFragmentList();
 
         // Add the fragment to the 'fragment_list' FrameLayout
         getSupportFragmentManager().beginTransaction()
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     //characters list fragment
     private void insertCharacterListFragment() {
         // Create a new Fragment to be placed in the activity layout
-        CharacterListFragment fragment = new CharacterListFragment();
+        CharacterListFragmentList fragment = new CharacterListFragmentList();
 
         // Add the fragment to the 'fragment_list' FrameLayout
         getSupportFragmentManager().beginTransaction()
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
     //locations list fragment
     private void insertLocationsListFragment() {
         // Create a new Fragment to be placed in the activity layout
-        LocationListFragment fragment = new LocationListFragment();
+        LocationListFragmentList fragment = new LocationListFragmentList();
 
         // Add the fragment to the 'fragment_list' FrameLayout
         getSupportFragmentManager().beginTransaction()

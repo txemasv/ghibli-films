@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.app.txema.ghiblifilms.R;
-import org.app.txema.ghiblifilms.contract.LocationContract;
+import org.app.txema.ghiblifilms.contract.FilmContract;
 import org.app.txema.ghiblifilms.di.App;
-import org.app.txema.ghiblifilms.model.Location;
-import org.app.txema.ghiblifilms.presenter.LocationPresenter;
+import org.app.txema.ghiblifilms.model.Film;
+import org.app.txema.ghiblifilms.presenter.FilmPresenter;
 import org.app.txema.ghiblifilms.rest.NetworkApi;
-import org.app.txema.ghiblifilms.view.adapter.LocationsAdapter;
-import org.app.txema.ghiblifilms.view.util.ViewFragment;
+import org.app.txema.ghiblifilms.view.adapter.FilmsAdapter;
+import org.app.txema.ghiblifilms.view.util.ViewListFragment;
 
 import java.util.List;
 
@@ -26,17 +26,17 @@ import javax.inject.Inject;
  * Created by Txema on 17/09/2017.
  */
 
-public class LocationListFragment extends ViewFragment implements LocationContract.View {
+public class FilmListFragmentList extends ViewListFragment implements FilmContract.View {
 
-    private static final String TAG = LocationListFragment.class.getSimpleName();
+    private static final String TAG = FilmListFragmentList.class.getSimpleName();
 
     private RecyclerView recyclerView;
-    private LocationPresenter presenter;
+    private FilmPresenter presenter;
 
     @Inject
     NetworkApi api;
 
-    public LocationListFragment() {
+    public FilmListFragmentList() {
     }
 
     @Override
@@ -75,7 +75,7 @@ public class LocationListFragment extends ViewFragment implements LocationContra
     }
 
     public void requestPresenterGetData() {
-        presenter = new LocationPresenter(this, api);
+        presenter = new FilmPresenter(this, api);
         presenter.loadData();
     }
 
@@ -90,12 +90,12 @@ public class LocationListFragment extends ViewFragment implements LocationContra
     }
 
     @Override
-    public void showData(List<Location> locations) {
+    public void showData(List<Film> films) {
         //wait for debugger (NOT IN RUN MODE!)
         //android.os.Debug.waitForDebugger();
         //Log.d(TAG, "wait for debugger ");
 
-        LocationsAdapter adapter = new LocationsAdapter(locations, getActivity());
+        FilmsAdapter adapter = new FilmsAdapter(films, getActivity());
         recyclerView.setAdapter(adapter);
     }
 

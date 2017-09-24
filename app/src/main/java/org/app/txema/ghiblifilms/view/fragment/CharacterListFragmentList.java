@@ -2,7 +2,7 @@ package org.app.txema.ghiblifilms.view.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.app.txema.ghiblifilms.R;
-import org.app.txema.ghiblifilms.contract.FilmContract;
+import org.app.txema.ghiblifilms.contract.CharacterContract;
 import org.app.txema.ghiblifilms.di.App;
-import org.app.txema.ghiblifilms.model.Film;
-import org.app.txema.ghiblifilms.presenter.FilmPresenter;
+import org.app.txema.ghiblifilms.model.Character;
+import org.app.txema.ghiblifilms.presenter.CharacterPresenter;
 import org.app.txema.ghiblifilms.rest.NetworkApi;
-import org.app.txema.ghiblifilms.view.adapter.FilmsAdapter;
-import org.app.txema.ghiblifilms.view.util.ViewFragment;
+import org.app.txema.ghiblifilms.view.adapter.CharactersAdapter;
+import org.app.txema.ghiblifilms.view.util.ViewListFragment;
 
 import java.util.List;
 
@@ -26,17 +26,15 @@ import javax.inject.Inject;
  * Created by Txema on 17/09/2017.
  */
 
-public class FilmListFragment extends ViewFragment implements FilmContract.View {
-
-    private static final String TAG = FilmListFragment.class.getSimpleName();
+public class CharacterListFragmentList extends ViewListFragment implements CharacterContract.View {
 
     private RecyclerView recyclerView;
-    private FilmPresenter presenter;
+    private CharacterPresenter presenter;
 
     @Inject
     NetworkApi api;
 
-    public FilmListFragment() {
+    public CharacterListFragmentList() {
     }
 
     @Override
@@ -67,15 +65,16 @@ public class FilmListFragment extends ViewFragment implements FilmContract.View 
         recyclerView.setHasFixedSize(true);
 
         //Use the layout manager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
 
         //Load data
         requestPresenterGetData();
     }
 
+    @Override
     public void requestPresenterGetData() {
-        presenter = new FilmPresenter(this, api);
+        presenter = new CharacterPresenter(this, api);
         presenter.loadData();
     }
 
@@ -90,12 +89,12 @@ public class FilmListFragment extends ViewFragment implements FilmContract.View 
     }
 
     @Override
-    public void showData(List<Film> films) {
+    public void showData(List<Character> characters) {
         //wait for debugger (NOT IN RUN MODE!)
         //android.os.Debug.waitForDebugger();
         //Log.d(TAG, "wait for debugger ");
 
-        FilmsAdapter adapter = new FilmsAdapter(films, getActivity());
+        CharactersAdapter adapter = new CharactersAdapter(characters, getActivity());
         recyclerView.setAdapter(adapter);
     }
 

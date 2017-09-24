@@ -1,11 +1,8 @@
 package org.app.txema.ghiblifilms.view.util;
 
-import android.app.ProgressDialog;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
-import android.widget.ProgressBar;
 
 import org.app.txema.ghiblifilms.MainActivity;
 import org.app.txema.ghiblifilms.R;
@@ -14,9 +11,9 @@ import org.app.txema.ghiblifilms.R;
  * Created by Txema on 23/09/2017.
  */
 
-public abstract class ViewFragment extends Fragment {
+public abstract class ViewListFragment extends Fragment {
 
-    protected static final String TAG = ViewFragment.class.getSimpleName();
+    protected static final String TAG = ViewListFragment.class.getSimpleName();
 
 
     protected Snackbar snackbar;

@@ -1,86 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/default_padding"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
-    <!-- logo -->
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="@dimen/about_icon_width"
-        android:layout_height="@dimen/about_icon_height"
-        android:adjustViewBounds="false"
-        android:contentDescription="@string/app_name"
-        android:layout_centerHorizontal="true"
-        android:padding="@dimen/default_padding"
-        android:scaleType="centerCrop"
-        android:gravity="center"
-        android:src="@drawable/ic_totoro" />
-
-    <TextView
-        android:id="@+id/title"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/large_padding"
-        android:text="@string/app_name"
-        android:textColor="@color/title_color"
-        android:textSize="@dimen/large_title_textSize"
-        android:layout_below="@+id/logo"
-        android:gravity="center"/>
+        android:padding="@dimen/default_padding">
 
-    <!-- description -->
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/large_padding"
-        android:text="@string/app_description"
-        android:textColor="@color/title_color"
-        android:textSize="@dimen/title_textSize"
-        android:layout_below="@+id/title"
-        android:gravity="center"/>
+        <!-- logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/about_icon_width"
+            android:layout_height="@dimen/about_icon_height"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            android:paddingTop="@dimen/default_padding"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_totoro" />
 
-    <!-- email -->
-    <ImageView
-        android:id="@+id/ic_email"
-        android:src="@drawable/ic_email"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/description"
-        android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:gravity="center"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            android:paddingTop="@dimen/default_padding"
+            android:text="@string/app_name"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/large_title_textSize" />
 
-    <TextView
-        android:id="@+id/email"
-        android:text="txemasv@gmail.com"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ic_email"
-        android:layout_alignTop="@+id/ic_email"
-        android:textSize="15dp" />
+        <!-- description -->
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:gravity="center"
+            android:padding="@dimen/large_padding"
+            android:text="@string/app_description"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/title_textSize" />
 
-    <!-- github link-->
-    <ImageView
-        android:id="@+id/ic_github"
-        android:src="@drawable/ic_github"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/email"
-        android:scaleType="fitXY"/>
+        <!-- email -->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/email_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/github"
-        android:text="https://github.com/txemasv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ic_github"
-        android:layout_alignTop="@+id/ic_github"
-        android:textSize="15dp" />
+            <ImageView
+                android:id="@+id/ic_email"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_email" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ic_email"
+                android:layout_toRightOf="@+id/ic_email"
+                android:paddingLeft="5dp"
+                android:text="txemasv@gmail.com"
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+
+        <!-- github link-->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email_block"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/ic_github"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_github" />
+
+            <TextView
+                android:id="@+id/github"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ic_github"
+                android:layout_toRightOf="@+id/ic_github"
+                android:text="github.com/txemasv"
+                android:paddingLeft="5dp"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

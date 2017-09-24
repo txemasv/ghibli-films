@@ -7,6 +7,7 @@
     <dimen name="film_poster_width">150dp</dimen>
     <dimen name="film_poster_height">210dp</dimen>
 
+    <dimen name="small_padding">8dp</dimen>
     <dimen name="default_padding">16dp</dimen>
     <dimen name="large_padding">32dp</dimen>
     <dimen name="default_textSize">16sp</dimen>
@@ -15,12 +16,6 @@
 
     <dimen name="detail_backdrop_height">250dp</dimen>
 
-    <dimen name="thumbnail_width">180dp</dimen>
-    <dimen name="thumbnail_height">180dp</dimen>
-
-    <dimen name="poster_width">300dp</dimen>
-    <dimen name="poster_height">300dp</dimen>
-
     <dimen name="large_title_textSize">20sp</dimen>
 
     <dimen name="nav_drawer_width">260dp</dimen>
@@ -28,11 +23,29 @@
     <dimen name="about_icon_width">120dp</dimen>
     <dimen name="about_icon_height">120dp</dimen>
 
+    <!-- film thumbnail -->
+    <dimen name="thumbnail_width">180dp</dimen>
+    <dimen name="thumbnail_height">180dp</dimen>
+
+    <!-- film poster -->
+    <dimen name="poster_width">300dp</dimen>
+    <dimen name="poster_height">450dp</dimen>
+
+    <!-- location thumbnail -->
     <dimen name="location_thumbnail_width">210dp</dimen>
     <dimen name="location_thumbnail_height">150dp</dimen>
 
+    <!-- location poster -->
+    <dimen name="location_poster_width">300dp</dimen>
+    <dimen name="location_poster_height">150dp</dimen>
+
+    <!-- character thumbnail -->
     <dimen name="character_thumbnail_width">150dp</dimen>
     <dimen name="character_thumbnail_height">150dp</dimen>
+
+    <!-- character thumbnail -->
+    <dimen name="character_poster_width">250dp</dimen>
+    <dimen name="character_poster_height">250dp</dimen>
 
 
 </resources>

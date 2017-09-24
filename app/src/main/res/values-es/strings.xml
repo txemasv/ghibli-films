@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">GhibliFilms</string>
     <string name="cover_title">Ghibli films</string>
-    <string name="http_error">Problema para obtener los datos del servidor</string>
-    <string name="call_on_failure">Conexión con el servicio web fallida.</string>
-    <string name="progress_dialog">Espere porfavor…</string>
+    <string name="http_error">Problema obteniendo datos del servidor.</string>
+    <string name="call_on_failure">Fallo al conectarse al servidor.</string>
+    <string name="progress_dialog">Cargando …</string>
     <string name="poster">poster</string>
     <string name="producer">Producer</string>
     <string name="director">Director</string>
-    <string name="action_about_us">Acerca de</string>
-    <string name="action_rate_app">Puntua esta app</string>
-    <string name="reload">Recargar</string>
+    <string name="action_about_us">About us</string>
+    <string name="action_rate_app">Rate app</string>
+    <string name="reload" >Reload</string>
     <string name="app_description">GhibliFilms es un proyecto Open Source creado por TxemaSV.</string>
     <string name="version">Version 1.3</string>
     <string name="my_email">txemasv@gmail.com</string>
@@ -20,14 +20,21 @@
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">
         <item>Films</item>
-        <item>People</item>
+        <item>Characters</item>
         <item>Locations</item>
     </string-array>
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="adUnitId">ca-app-pub-3940256099942544/6300978111</string>
     <string name="name">Name</string>
     <string name="climate">Climate</string>
+    <string name="terrain">Terrain</string>
+    <string name="surface_water">Surface water</string>
     <string name="unknown">Unknown</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="eye_color">Eye color</string>
+    <string name="hair_color">Hair color</string>
 
 </resources>

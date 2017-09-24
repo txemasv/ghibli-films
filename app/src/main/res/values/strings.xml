@@ -20,7 +20,7 @@
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">
         <item>Films</item>
-        <item>People</item>
+        <item>Characters</item>
         <item>Locations</item>
     </string-array>
 
@@ -32,5 +32,9 @@
     <string name="terrain">Terrain</string>
     <string name="surface_water">Surface water</string>
     <string name="unknown">Unknown</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="eye_color">Eye color</string>
+    <string name="hair_color">Hair color</string>
 
 </resources>
