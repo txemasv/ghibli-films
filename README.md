@@ -1,8 +1,11 @@
 # GhibliFilms
 
 ## Description
-Android App that shows info about films, characters and locations of Studio Ghibli's world.  
-**Play Store** https://play.google.com/store/apps/details?id=org.app.txema.ghiblifilms
+Collection of films, characters and locations of Studio Ghibli's world for **Android**.    
+
+**The objective** is sharing a complete example to create a Json Rest API Client using good practices and important libraries.
+ 
+Link to **Play Store**: https://play.google.com/store/apps/details?id=org.app.txema.ghiblifilms.
 
 ## Key Features
 - MVP Architecture.
@@ -21,9 +24,6 @@ Android App that shows info about films, characters and locations of Studio Ghib
 
 ### Tablet two-panes
 ![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
-
-## Motivation
-Share a complete example that uses important Android libraries to create a JSON API Client respecting good design practices.
 
 ## Studio Ghibli API JSON
 The Studio Ghibli API catalogs the films found in the worlds of Ghibli: https://ghibliapi.herokuapp.com/#tag/Films
