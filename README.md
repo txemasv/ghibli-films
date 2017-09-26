@@ -26,7 +26,7 @@ Link to **Play Store**: https://play.google.com/store/apps/details?id=org.app.tx
 ![tablet](https://github.com/txemasv/ghibli-films/blob/master/screenshot/tablet.png)
 
 ## Studio Ghibli API JSON
-The Studio Ghibli API catalogs the films found in the worlds of Ghibli: https://ghibliapi.herokuapp.com/#tag/Films
+The Studio Ghibli API catalogs the films found in the worlds of Ghibli: https://ghibliapi.herokuapp.com/
 
 ## License
 Copyright 2017 Jose M. Seoane
